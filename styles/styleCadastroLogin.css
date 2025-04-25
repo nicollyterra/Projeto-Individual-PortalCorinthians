@@ -1,0 +1,140 @@
+
+body {
+    background-color: #131313 ;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* divs principais */
+
+.geral {
+    height: 500px;
+    background-color: wheat;
+    width: 55%;
+    display: flex;
+    flex-direction: row;
+}
+
+.form {
+    height: 100%;
+    width: 50%;
+    background-color: #fffff6;
+    display: flex;
+    padding-left: 2vh;
+    flex-direction: column;
+}
+
+.image {
+    height: 100%;
+    width: 50%;
+    background-color: #131313;
+    background-image: url(/imagens/fotologin-cadastro.svg);
+    background-size: cover; /* Faz a imagem cobrir toda a div */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita repetir a imagem */
+    
+}
+
+/* elementos Cadastro*/
+
+.title {
+    height: 18%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+}
+
+h1 {
+    display: inline-block;
+    font-size: 32px; 
+    text-transform: uppercase;
+    position: relative;
+    letter-spacing: 2px;
+    color: black; 
+    margin-top: 7vh;
+    margin-left: 3vh;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px; 
+    width: 100%;
+    height: 4px; 
+    background-color: #8B7D56; 
+}
+
+.inputs{
+    height: 60%;
+    width: 100%;
+    margin-top: 4vh;
+    display: flex;
+    flex-direction: row;
+}
+.inputs1{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding-left: 1vh;
+
+}
+
+.inputs2{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding-left: 2vh;
+
+}
+
+input {
+    margin-top: -4vh;
+    height: 30px;
+    width: 85%;
+    border-radius: 7px;
+    border:  #8B7D56 3px solid;
+    outline: none;
+    background-color: transparent;
+}
+
+.botao-cadastrar {
+    width: 94%;
+    background-color: #131313; 
+    color: #fffff6; 
+    font-weight: bold; 
+    font-family: 'Poppins', 'Sans-serif';
+    font-size: 16px;
+    border: none; 
+    border-radius: 8px; 
+    padding: 10px 40px; 
+    text-align: center;
+    cursor: pointer;
+    position: relative; 
+    overflow: hidden;
+    margin-left: 1%;
+  }
+
+    .botao-cadastrar::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background-image: url('/imagens/escudo-botoes.svg'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
