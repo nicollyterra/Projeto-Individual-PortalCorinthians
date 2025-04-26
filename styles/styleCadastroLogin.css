@@ -48,7 +48,7 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-
+   
 }
 
 h1 {
@@ -138,3 +138,88 @@ input {
     background-size: contain;
     background-repeat: no-repeat;
   }
+
+  .inputsLog{
+    height: 50%;
+    width: 90%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.inputs1Log{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-left: 15%;
+}
+
+
+.minidesc {
+    height: 5%;
+    text-align: start;
+    margin-left: 5%;
+}
+
+h3 {
+    font-weight: 300;
+}
+
+.botao-login {
+    width: 68%;
+    background-color: #131313; 
+    color: #fffff6; 
+    font-weight: bold; 
+    font-family: 'Poppins', 'Sans-serif';
+    font-size: 16px;
+    border: none; 
+    border-radius: 8px; 
+    padding: 10px 40px; 
+    text-align: center;
+    cursor: pointer;
+    position: relative; 
+    overflow: hidden;
+    margin-left: 13%;
+  }
+
+    .botao-login::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background-image: url('/imagens/escudo-botoes.svg'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .cadastro-texto {
+    text-align: center;
+    margin-top: 3vh;
+    margin-right: 2vh;
+    font-family: 'poppins', sans-serif; /* ou a fonte que você estiver usando */
+  }
+  
+  .cadastro-texto p {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0;
+    color: #171717; /* preto */
+  }
+  
+  .cadastro-texto a {
+    font-weight: bold;
+    color: #7d6b41; /* marronzinho claro */
+    text-decoration: none;
+    font-size: 13px;
+    display: block;
+    margin-top: 3px;
+  }
+ 
