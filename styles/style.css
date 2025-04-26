@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+  }
+  
+  .hero {
+    position: relative;
+    height: 100vh;
+    background: url('/imagens/fundo-inicio.svg') no-repeat center center/cover;
+    color: white;
+  }
+  
+  .navbar {
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .logo img {
+    width: 70px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 19px;
+    text-transform: uppercase;
+  }
+  
+  .user-icon img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .hero-content h2 {
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 1.2;
+  }
+  
+  .hero-content h2 span {
+    font-size: 60px;
+    font-weight: bold;
+  }
+  
+  .hero-content p {
+    margin-top: 20px;
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
