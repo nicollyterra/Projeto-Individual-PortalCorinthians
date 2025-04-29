@@ -73,3 +73,150 @@
     font-size: 14px;
     letter-spacing: 2px;
   }
+
+  #news {
+    width: 100%;
+    padding: 40px 0;
+    background-color: #111;
+    text-align: center;
+    height: 500px;
+}
+
+#news h2 {
+    font-family: 'sua fonte de título'; /* ajuste a fonte */
+    font-size: 2rem;
+    color: black;
+    background-color: #fff7dc;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+}
+
+.news-swiper {
+    width: 85%;
+    height: 80%;
+    max-width: 1500px;
+    overflow: visible;
+    position: relative;
+    margin-top: 5vh;
+}
+
+.swiper-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    width: 400px;
+    height: 240px ;
+    background: white;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: row;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.img-card {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.img-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.desc-card {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.titulo-news h1 {
+    font-size: 35px;
+    color: black;
+    margin-bottom: 10px;
+    text-align: left;
+    font-weight: 100;
+}
+
+
+
+.desc-news p {
+    font-size: 15px;
+    color: #333;
+    text-align: left;
+}
+
+.data-news p {
+    font-size: 0.8rem;
+    color: gray;
+    text-align: left;
+    margin-top: 10px;
+}
+
+
+.banner-news h1 {
+  color: #fcfbf5 ;
+  font-family: 'Bebas-Neue',; 
+  font-size: 35px;
+  letter-spacing: 2px;
+  padding: 10px 20px;
+  display: inline-block;
+  width: 50vh;
+  margin-top: 1vh;
+  margin-bottom: 4vh;
+  position: relative; 
+}
+
+.banner-news h1::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-80%); /* Centraliza a linha */
+  bottom: 0.5px;               /* Coloca a linha abaixo do texto */
+  width: 40%;                  /* Largura da linha dourada */
+  height: 4px;
+  background-color: #847248;   /* Dourado bonito */
+}
+
+/* Posicionamento das setas */
+.swiper-button-prev,
+.swiper-button-next {
+    color: white;
+    width: 30px;
+    height: 30px;
+    margin-top: -30px; /* centraliza verticalmente */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+/* Coloca as setas fora do carrossel */
+.swiper-button-prev {
+    left: -40px;
+}
+
+.swiper-button-next {
+    right: -40px;
+}
+
+/* Ícone menor e branco */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    font-size: 20px; /* tamanho do ícone */
+    color: white;
+}
