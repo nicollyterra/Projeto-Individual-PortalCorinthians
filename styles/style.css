@@ -90,7 +90,7 @@
 }
 
 #news h2 {
-    font-family: 'sua fonte de título'; /* ajuste a fonte */
+
     font-size: 2rem;
     color: black;
     background-color: #fff7dc;
@@ -163,7 +163,7 @@
 
 
 .desc-news p {
-    font-size: 15px;
+    font-size: 20px;
     color: #333;
     text-align: left;
 }
@@ -382,7 +382,6 @@ width: 40%;
 }
 
 #historia {
-  height: 400px;
   width: 100%;
   background-color: #fffff6;
   display: flex;
@@ -486,4 +485,142 @@ clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
 .sessaonsei {
   background: #131313;
   background: linear-gradient(180deg, rgb(19, 19, 19) 0%, rgba(255, 255, 246, 0.852) 100%);
+}
+
+.torcida {
+  height: 1100px;
+  margin-top: 15%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.geraltorcida {
+height: 100%;
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.titulo-torcida {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.titulo-torcida p {
+  text-align: center;
+  font-size: 100px;
+  font-family: 'Hyperwave-two';
+}
+
+.texto-torcida {
+  height: 40%;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10vh;
+}
+
+.texto-torcida p {
+  text-align: center;
+  font-size: 30px;
+}
+
+.titulo-car-torcida {
+  width: 45%;
+  height: 8%;
+  font-family: 'Hyperwave-two';
+  background-color: #131313;
+  color:#fffff6;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  letter-spacing: 2px;
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); 
+}
+
+
+.torcida-swiper {
+  width: 90%;
+  height: 75%;
+  max-width: 1500px;
+  overflow: visible;
+  position: relative;
+  margin-top: 15vh;
+}
+
+.swiper-wrapper-torcida {
+  display: flex;
+  align-items: center;
+}
+
+.swiper-slide-torcida {
+  display: flex;
+  justify-content: center;
+}
+
+.card-torcida {
+  border-radius: 10px;
+  width: 500px;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 5px 8px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  background-size: cover;
+}
+
+.info {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-color: #fff;
+  transform: translateY(100%)
+    translateY(-88px)
+    translateZ(0);
+  transition: transform 0.5s ease-out;
+}
+
+.info:before {
+  z-index: -1;
+  display: block;
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: url(https://source.unsplash.com/collection/905011/1000x1000);
+  filter: blur(10px);
+  background-size: cover;
+  opacity: 0.25;
+  transform: translateY(-100%)
+    translateY(88px)
+    translateZ(0);
+  transition: transform 0.5s ease-out;
+}
+
+.card-torcida:hover .info,
+.card-torcida:hover .info:before {
+  transform: translateY(0) translateZ(0);
+}
+
+.title {
+  margin: 0;
+  padding: 22px;
+  font-size: 35px;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.description {
+  margin: 0;
+  padding: 0 24px 24px;
+  font-size: 18px;
+  line-height: 1.5;
 }

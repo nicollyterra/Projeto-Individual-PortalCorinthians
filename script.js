@@ -7,3 +7,13 @@ var swiper = new Swiper('.news-swiper', {
         prevEl: '.swiper-button-prev',
     },
 });
+
+var swiper = new Swiper('.torcida-swiper', {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    loop: false,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
