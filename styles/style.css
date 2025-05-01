@@ -1,3 +1,9 @@
+
+@font-face {
+  font-family: 'Hyperwave-two';
+  src: url("../Hyperwave.otf");
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +13,7 @@
   body, html {
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
+    background-color: #fffff6;
   }
   
   .hero {
@@ -170,30 +177,20 @@
 
 
 .banner-news h1 {
-  color: #fcfbf5 ;
-  font-family: 'Bebas-Neue',; 
-  font-size: 35px;
+  color: #131313 ;
+  background-color: #fffff6;
+  font-family: 'Hyperwave-two'; 
+  font-size: 60px;
   letter-spacing: 2px;
   padding: 10px 20px;
   display: inline-block;
-  width: 50vh;
+  width: 60vh;
   margin-top: 1vh;
+  height: 50px;
   margin-bottom: 4vh;
-  position: relative; 
+  position: relative;
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); 
 }
-
-.banner-news h1::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  transform: translateX(-80%); /* Centraliza a linha */
-  bottom: 0.5px;               /* Coloca a linha abaixo do texto */
-  width: 40%;                  /* Largura da linha dourada */
-  height: 4px;
-  background-color: #847248;   /* Dourado bonito */
-}
-
-
 
 /* Posicionamento das setas */
 .swiper-button-prev,
@@ -224,40 +221,33 @@
 }
 
 .banner-jogos h1 {
-  color: #fffff2 ;
+  color: #131313 ;
   letter-spacing: 2px;
-  font-family: 'Bebas-Neue',; 
-  font-size: 40px;
+  font-family: 'Hyperwave-two'; 
+  font-size: 60px;
   letter-spacing: 2px;
   padding: 10px 20px;
   display: inline-block;
   width: 50vh;
-  margin-top: 1vh;
+  margin-top: 3vh;
+  height: 50PX;
   margin-bottom: 4vh;
   text-align: center;
   position: relative; 
+  background-color: #fffff6;
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
 }
 
-.banner-jogos h1::after {
-  content: '';
-  position: absolute;
-  left: 46%;
-  transform: translateX(-60%); /* Centraliza a linha */
-  bottom: 0.5px;               /* Coloca a linha abaixo do texto */
-  width: 15%;                  /* Largura da linha dourada */
-  height: 4px;
-  background-color: #847248;   /* Dourado bonito */
-}
 
 .jogos {
-  height: 400px;
+  height: 500px;
   width: 100%;
-  background: #131313;
+  background: #fffff6;;
   text-align: center;
   display: flex;
   align-items: center;
   flex-direction: column;
-  background: linear-gradient(180deg,rgba(19, 19, 19, 1) 4%, rgba(255, 255, 246, 1) 79%);
+  background-color: #131313;
 }
 
 .dados {
@@ -293,15 +283,21 @@ width: 40%;
   align-items: center;
   display: flex;
   justify-content: center;
+  color: #fffff6;
 }
 
 .dataHora {
   margin-top: 3vh;
+ 
+}
+
+.dataHora p {
+  color: #fffff6;
 }
 
 .linha {
   height: 2px;
-  background-color: #131313;
+  background-color: #fffff6;;
   border: none;
 }
 
@@ -311,19 +307,20 @@ width: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fffff6 ;
+  
 }
 
 .button-craque button{
   height: 10vh;
-  width: 60vh;
-  font-family: "Permanent Marker", cursive;
+  width: 70vh;
+  font-family: "Hyperwave-two", cursive;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 50px;
   font-style: normal;
   color: #fffff6 ;
-  background-color: #131313;
+  background-color: transparent;
   border: none; 
+  border-radius: 10px;
   transition: transform 0.3s ease; /* suaviza a transformação */
 }
 
@@ -340,16 +337,16 @@ width: 40%;
   display: flex;
   background-color: #fffff6;
   justify-content: space-evenly;
+  margin-bottom: 10vh;
 }
 
 .elencoMasc {
   background-color: #131313;
-  background-image: url(/imagens/elenco-masc.png);
-  background-size: cover;
+ border-radius: 20px;
   height: 85%;
-  width: 30%;
-  border-radius: 20px;
-  box-shadow: rgba(100, 100, 111, 0.488) 0px 7px 29px 0px;
+  width: 40%;
+  border-radius: 10px;
+ 
   transition: transform 0.3s ease;
 }
 
@@ -359,7 +356,7 @@ width: 40%;
   justify-self: center;
   color: #fffff6;
   font-size: 60px;
-  margin-top: 33vh;
+  margin-top: -10vh;
 }
 
 .elencoFem p {
@@ -367,7 +364,7 @@ width: 40%;
   justify-self: center;
   color: #fffff6;
   font-size: 60px;
-  margin-top: 33vh;
+  margin-top: -10vh;
 }
 
 .elencoFem {
@@ -375,13 +372,90 @@ width: 40%;
   background-image: url(/imagens/elenco-fem.png);
   background-size: cover;
   height: 85%;
-  width: 30%;
-  border-radius: 20px;
-  box-shadow: rgba(100, 100, 111, 0.437) 0px 7px 29px 0px; 
+  width: 40%;
+  border-radius: 10px;
+
   transition: transform 0.3s ease;
 }
 
 .elencoFem:hover , .elencoMasc:hover {
     transform: translateY(-5px);
     box-shadow: rgba(63, 63, 63, 0.699) 0px 7px 29px 0px;
+}
+
+#historia {
+  height: 400px;
+  width: 100%;
+  background-color: #fffff6;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+.introducao {
+  width:40%; 
+  height: 90%;
+  padding-left: 5vh ;
+}
+
+.img-hist {
+  width: 60%;
+  height: 90%;
+}
+
+.introducao p {
+  font-size: 85px;
+  line-height: 1;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.574);
+}
+
+.introducao h2 {
+  font-weight: 100;
+  transition: transform 0.3s ease;
+}
+
+.introducao h2:hover {
+  transform: translateY(-5px);
+  color: rgb(98, 0, 0);
+}
+
+.introducao a {
+  text-decoration: none;
+  color: #131313;
+}
+
+
+.containers-historia {
+  width: 70%;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+}
+
+.elenco-text {
+  align-self: center;
+  text-align: center;
+  margin-top: 4%;
+  margin-bottom: 7%;
+  width: 40%;
+  height: 10vh;
+  padding-top: 3vh;
+  justify-content: center;
+  justify-self:  center;
+background-color: #131313;
+clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+
+}
+
+.elenco-text p {
+  font-family: 'Hyperwave-two';
+  font-size: 60px;
+  color: #fffff6;
+}
+
+
+.sessaonsei {
+  background: #131313;
+  background: linear-gradient(180deg, rgb(19, 19, 19) 0%, rgba(255, 255, 246, 0.852) 100%);
 }
