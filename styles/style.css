@@ -822,7 +822,128 @@ html {
 }
 
 .footer {
-  height: 600px;
+  height: 700px;
   width: 100%;
+ background-color: #131313;
+  display: flex;
+  align-items: end;
+}
+
+.infos-footer {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+}
+
+.patrocinios {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.logo-patro {
+  height: 33%;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+} 
+
+.logo-patro img {
+  height: 100%;
+}
+
+.titulo-patrocina{ 
+  width: 100%;
+  height: 10%;
+}
+
+.titulo-patrocina p {
+  font-size: 30px;
+  text-align: center;
+  color: white;
+}
+
+.links {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.titulo-links {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulo-links p {
+  font-size: 30px;
+  text-align: center;
+  color: white;
+}
+
+.links-desc {
+align-items: center;
+display: flex;
+width: 100%;
+height: 80%;
+flex-direction: column;
+padding-top: 5%;
+}
+
+.links-desc h2 {
+  padding-top: 3vh;
+  color: #fffff6;
+  letter-spacing: 2px;
+}
+
+.links-desc a {
+  text-decoration: none;
+  color: #fffff6;
+}
+
+.titulo-redes {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulo-redes p {
+  font-size: 30px;
+  text-align: center;
+  color: white;
+}
+
+.redes{
+  width: 33%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.links-redes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 5vh;
+}
+
+footer {
+  height: 200px ;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  font-family: "Poppins";
+  color: #fffff6;
+  font-weight: 200;
   background-color: #131313;
 }
