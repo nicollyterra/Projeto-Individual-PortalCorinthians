@@ -17,3 +17,13 @@ var swiper = new Swiper('.torcida-swiper', {
         prevEl: '.swiper-button-prev',
     },
 });
+
+var swiper = new Swiper('.organizada-swiper', {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    loop: true,
+    navigation: {
+        nextEl: '.swiper-button-next-to',
+        prevEl: '.swiper-button-prev-to',
+    },
+});
