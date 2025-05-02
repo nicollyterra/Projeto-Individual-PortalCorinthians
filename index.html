@@ -23,14 +23,14 @@
         <img src="imagens/logo-navbar.svg" alt="Logo Corinthians">
       </div>
       <ul class="nav-links">
-        <li><a href="#">Notícias</a></li>
-        <li><a href="#">Jogos</a></li>
-        <li><a href="#">Fiel Torcida</a></li>
-        <li><a href="#">História</a></li>
-        <li><a href="#">Modalidades</a></li>
+        <li><a href=#news>Notícias</a></li>
+        <li><a href=#jogos>Jogos</a></li>
+        <li><a href=#torcida>Fiel Torcida</a></li>
+        <li><a href=#historia>História</a></li>
+        <li><a href=#modalidades>Modalidades</a></li>
       </ul>
       <div class="user-icon">
-        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="User Icon">
+        <button class="botao-login"><a href="login.html" style="text-decoration: none; color: #131313;">Login</a></button>
       </div>
     </nav>
 
@@ -162,7 +162,7 @@
 
   <!-- parte de jogos  -->
 
-  <section class="jogos">
+  <section class="jogos" id="jogos">
     <div class="jogos">
 
       <div class="banner-jogos">
@@ -484,6 +484,8 @@
 
   </section>
 
+  <!-- sessão de titulos -->
+
   <section class="titulos">
 
     <div class="titulos-geral">
@@ -497,10 +499,71 @@
 
   </section>
 
+<!-- sessao de Modalidades -->
 
+<section class="modalidades" id="modalidades">
+
+  <div class="geral-modalidades">
+
+    <div class="titulo-modalidades">
+      <p>Você sabia?</p>
+
+      
+    </div>
+    <div class="desc-modalidades">
+      <p>O sport club corinthians paulista não está só presente nos campos de futebol com o time masculino, o corinthians também faz parte de outras modelidades esportivas e futebolisitcas </p>
+      </div>
+
+   <div class="carrossel-mod">
+    <div class="swiper news-swiper">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="card-moda">
+          <img src="imagens/feminino-corinthians.jpg" alt="" style="width: 100%;">
+            
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="card-moda">
+           <img src="imagens/base.jpg" alt="" style="width: 100%;">
+            
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="card-moda">
+           <img src="imagens/basquete.jpg" alt="" style="width: 100%;">
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="card-moda">
+            <img src="imagens/bask-feminino.jpg" alt="" style="width: 100%;">
+          </div>
+        </div>
+
+
+        <!-- Repete .swiper-slide para cada notícia -->
+      </div>
+
+      <!-- Botões de navegação -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+   </div>
+    </div>
+  </div>
+
+
+
+</section>
+
+<section class="footer">
+
+</section>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
-
 </html>

@@ -1,3 +1,16 @@
+// estilizações da página
+
+
+window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+
 var swiper = new Swiper('.news-swiper', {
     slidesPerView: 3,
     spaceBetween: 30,
