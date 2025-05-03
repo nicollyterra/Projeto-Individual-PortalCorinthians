@@ -40,3 +40,12 @@ var swiper = new Swiper('.organizada-swiper', {
         prevEl: '.swiper-button-prev-to',
     },
 });
+
+const sidebar = document.querySelector('.sidebar');
+const toggleButton = document.querySelector('.toggle-button');
+const mainContent = document.querySelector('.main-content');
+
+toggleButton.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+    mainContent.classList.toggle('sidebar-open');
+});
