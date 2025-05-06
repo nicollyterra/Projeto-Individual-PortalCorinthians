@@ -49,3 +49,4 @@ toggleButton.addEventListener('click', () => {
     sidebar.classList.toggle('open');
     mainContent.classList.toggle('sidebar-open');
 });
+
