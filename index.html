@@ -294,24 +294,73 @@
 
       <div class="button-craque">
         <button class="btn_craque">Votar em Craque do último jogo</button>
+      </div>
 
+      
         <div class="modal">
           <div class="content-modal">
 
             <div class="titulo-modal">
-              <p>Vote em quem você acha que foi o craque do último jogo</p>
+              <p>Vote em quem você acha que foi o <span style="color: #847248;">  craque  </span> do último jogo</p>
             </div>
 
             <div class="geralmodal">
-              <div class="img-jogador"></div>
-              <div class="select-jogador"></div>
-            </div>
-            
 
+              <div class="img-jogador">
+                <div class="img-jog">
+
+                </div>
+              </div>
+
+
+              <div class="select-jogador">
+                <div class="infos-modal">
+
+                  <div class="desc-modal">
+                    <p>Selecione um jogador</p>
+                  </div>
+                  
+                  <div class="select-div">
+
+                  
+                  <select id="escolha_jog" class="select">
+                    <option value="">Clique aqui</option>
+                    <option value="hugo_souza">Hugo Souza</option>
+                    <option value="memphis">Memphis Depay</option>
+                    <option value="ya9">Yuri Alberto</option>
+                    <option value="garro">Rodrigo Garro</option>
+                    <option value="romero">Angel Romero</option>
+                    <option value="bidon">Breno Bidon</option>
+                    <option value="carrilo">André Carrillo</option>
+                    <option value="magno">Talles Magno</option>
+                    <option value="coronado">Igor Coronado</option>
+                    <option value="martinez">José Martinez</option>
+                    <option value="matheuzinho">Matheuzinho</option>
+                    <option value="anglieri">Fabrizio Angileri</option>
+                  </select>
+                  
+                </div>
+
+
+                <div class="configs-jogador">
+                  <p>Jogador escolhido:</p>
+                  <p>Posição:</p>
+                </div>
+
+                <div class="botao-modal">
+                  <button id="votar" onclick="votar()" class="votar">Votar!</button>
+                </div>
+
+
+                </div>
+              </div>
+
+
+            </div>
           </div>
         </div>
 
-      </div>
+      
     </div>
 
     <!-- times -->
@@ -684,6 +733,7 @@
   <h3>Sport Club Corinthians Paulista © 2025 - Todos os direitos reservados - Proteção de Dados</h3>
   <h3>Desenvolvido por: Nicolly Emilly De Souza Terra</h3>
 </footer>
+
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="script.js"></script>

@@ -1071,24 +1071,116 @@ footer {
 .titulo-modal {
   width: 100%;
   height: 10%;
-  background-color: #847248;
+  padding-top: 4vh;
 }
 
 .img-jogador {
   height: 100%;
   width: 50%;
-  background-color: rgb(8, 8, 46);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding-left: 2vh;
 }
 
 .select-jogador {
   height: 100%;
   width: 50%;
-  background-color: blue;
+  justify-content: center;
+  display: flex;
 }
+
+.select-jogador p {
+  font-size: 35px;
+}
+
 
 .geralmodal {
   width: 100%;
   height: 90%;
   display: flex;
   flex-direction: row;
+}
+
+.img-jog {
+  width: 60%;
+  height: 70%;
+  background-color: #847248;
+ 
+}
+
+
+.titulo-modal p{
+  text-align: center;
+  font-size: 40px;
+}
+
+select {
+  width: 250px;
+  height: 40%;
+  border: #131313 2px solid;
+  outline: none;
+  border-radius: 5px;
+  background-color: transparent;
+
+}
+
+.desc-modal {
+  height: 15%;
+  width: 100%;
+  margin-top: 8%;
+  padding-top: 2vh;
+  text-align: center;
+}
+
+.infos-modal {
+  width: 100%;
+}
+
+.select-div {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.configs-jogador {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10%;
+}
+
+.configs-jogador  p {
+  font-size: 25px;
+}
+
+.botao-modal {
+  height: 30%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.botao-modal button{
+  width: 50%;
+  height: 35%;
+  border: none;
+  font-family: 'Hyperwave-two';
+  font-size: 35px;
+  padding-top: 1vh;
+  color: #fffff6;
+  background-color: #131313;
+  transition: transform 0.3s ease;
+}
+
+.botao-modal button:hover {
+  color: #131313;
+  transform: scale(0.9);
+  background-color: #847248;
 }
