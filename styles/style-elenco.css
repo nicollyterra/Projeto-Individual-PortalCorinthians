@@ -1,11 +1,13 @@
 body, html {
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
+    margin: 0;
+    padding: 0;
     background-color: #fffff6;
   } 
 
   .navbar {
-    width: 93%;
+    width: 100%;
     padding: 0px 50px;
     display: flex;
     align-items: center;
@@ -43,16 +45,18 @@ body, html {
   justify-content: center;
   display: flex;
   flex-direction: column;
-  margin-top: 5%;
+  margin-top: 4%;
   align-items: center;
 }
 
 
 
 .fotos-inicial {
-  height: 550px;
-  width: 95%; 
+  height: 540px;
+  width: 100%; 
+  padding-top: 3vh;
   display: flex;
+  background-color: #131313;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
@@ -65,17 +69,29 @@ body, html {
   justify-content: space-evenly;
 }
 
+.texts {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: #131313;
+  background: linear-gradient(180deg, rgb(19, 19, 19) 0%, rgba(255, 255, 246, 0.852) 100%);
+}
+
 .titulo {
   font-size: 60px;
   letter-spacing: 2px;
+  color: #fffff6;
   text-shadow: rgba(0, 0, 0, 0.41) 0px 3px 8px;
 }
 
 .desc {
   width: 60%;
   font-size: 25px;
-  text-align: center;
   margin-top: -4%;
+  color: #fffff6;
+  text-shadow: rgba(0, 0, 0, 0.41) 0px 3px 8px;
 }
 
 .idolos {
