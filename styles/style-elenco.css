@@ -4,10 +4,11 @@ body, html {
     margin: 0;
     padding: 0;
     background-color: #fffff6;
+    overflow-x: hidden;
   } 
 
   .navbar {
-    width: 100%;
+    width: 95%;
     padding: 0px 50px;
     display: flex;
     align-items: center;
@@ -16,6 +17,18 @@ body, html {
     top: 0;
     left: 0;
     background-color: #131313;
+  }
+
+  .navbar-2 {
+    width: 95%;
+    padding: 0px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #22012c;
   }
   
   .logo img {
@@ -62,6 +75,17 @@ body, html {
   align-items: center;
 }
 
+.fotos-inicial-2 {
+  height: 540px;
+  width: 100%; 
+  padding-top: 3vh;
+  display: flex;
+  background-color: #22012c;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .linha1, .linha2 {
   width: 100%;
   height: 48%;
@@ -79,6 +103,16 @@ body, html {
   background: linear-gradient(180deg, rgb(19, 19, 19) 0%, rgba(255, 255, 246, 0.852) 100%);
 }
 
+.texts-2 {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: #22012c;
+  background: linear-gradient(180deg, rgb(33, 0, 39) 0%, rgba(255, 255, 246, 0.852) 100%);
+}
+
 .titulo {
   font-size: 60px;
   letter-spacing: 2px;
@@ -92,6 +126,14 @@ body, html {
   margin-top: -4%;
   color: #fffff6;
   text-shadow: rgba(0, 0, 0, 0.41) 0px 3px 8px;
+}
+
+.desc-2 {
+  width: 60%;
+  font-size: 25px;
+  margin-top: -4%;
+  color: #6d5c33;
+
 }
 
 .idolos {
@@ -129,7 +171,7 @@ body, html {
   background: #222;
   border-radius: 6px;
   padding: 5px;
-  width: 10%;
+  width: 15%;
 }
 
 .jogador img {
@@ -158,4 +200,8 @@ footer {
   color: #fffff6;
   font-weight: 200;
   background-color: #131313;
+}
+
+span p {
+  font-size: 20px;
 }
