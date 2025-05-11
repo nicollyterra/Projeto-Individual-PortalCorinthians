@@ -3,6 +3,23 @@
   src: url("../Hyperwave.otf");
 }
 
+@keyframes fadeIn {
+  to {
+      opacity: 1;
+  }
+}
+
+.fade-in-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.fade-in-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 * {
   margin: 0;
   padding: 0;
