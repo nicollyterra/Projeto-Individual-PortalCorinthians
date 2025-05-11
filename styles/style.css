@@ -782,7 +782,7 @@ html {
 
 .modalidades {
   background-color: #131313;
-  height: 700PX;
+  height: 800PX;
   padding-top: 20vh;
 }
 
@@ -861,6 +861,7 @@ html {
   width: 100%;
  background-color: #131313;
   display: flex;
+  padding-top: 5%;
   align-items: end;
 }
 
