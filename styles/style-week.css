@@ -32,7 +32,8 @@
     left: 0;
     z-index: 10;
     color: #131313;
-    background-color: transparent
+    background-color: transparent;
+    color: whitesmoke;
   }
   
   .navbar.scrolled {
@@ -41,7 +42,8 @@
     transition: background-color 0.5s ease, box-shadow 0.5s ease;
     z-index: 10;
     height: 80px;
-    color: whitesmoke;
+    text-shadow: #fffff6;
+    z-index: 10;
   }
   
   .logo img {
@@ -62,6 +64,9 @@
     text-transform: uppercase;
   }
   
+  .navbar.scrolled a {
+    color: #fffff6;
+} 
   .nav-links li a::after {
     content: '';
     position: absolute;
@@ -103,6 +108,7 @@
     width: 100%;
     overflow: hidden;
     position: relative;
+   
   }
   
   .slides-container {
@@ -114,6 +120,7 @@
   .slide {
     width: 100%;
     flex-shrink: 0;
+    
   }
 
   #explicacao {
@@ -144,7 +151,7 @@
   .desc , .img-desc {
     width: 50%;
     height: 100%;
-    z-index: 10;
+    
   }
 
   .desc {
@@ -156,7 +163,6 @@
   .img-desc img {
     height: 100%;
     width: 100%;
-    
   }
 
   .titulo-desc {
@@ -169,7 +175,123 @@
   .square {
     width: 400px;
     height: 300px;
-    background-color: #720000c7;
+    background-color: #72000099;
     margin-right: -65%;
     margin-top: -15%;
+  
+  }
+
+  
+.torcida-swiper {
+    width: 90%;
+    height: 71%;
+    max-width: 1500px;
+    overflow: visible;
+    position: relative;
+    margin-top: 15vh;
+  }
+  
+  .swiper-wrapper-torcida {
+    display: flex;
+    align-items: center;
+    
+  }
+  
+  .swiper-slide-torcida {
+    display: flex;
+    justify-content: center;
+
+  }
+  
+  .card-torcida {
+    border-radius: 10px;
+    width: 450px;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+      0px 5px 8px 0px rgba(0, 0, 0, 0.14),
+      0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    background-size: cover;
+    
+  }
+  
+  .info {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-color: #131313;
+    transform: translateY(100%) translateY(-88px) translateZ(0);
+    color: #fffff6;
+    transition: transform 0.5s ease-out;
+  }
+  
+  .info:before {
+    z-index: -1;
+    display: block;
+    position: absolute;
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url(https://source.unsplash.com/collection/905011/1000x1000);
+    filter: blur(10px);
+    background-size: cover;
+    opacity: 0.25;
+    transform: translateY(-100%) translateY(88px) translateZ(0);
+    transition: transform 0.5s ease-out;
+  }
+  
+  .card-torcida:hover .info,
+  .card-torcida:hover .info:before {
+    transform: translateY(0) translateZ(0);
+  }
+  
+  .title {
+    margin: 0;
+    padding: 25px;
+    font-size: 35px;
+    line-height: 1;
+    color: #fffff6;
+    font-weight: 100;
+    text-align: center;
+  }
+  
+  .description {
+    margin: 0;
+    padding: 0 24px 24px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .swiper-button-next, 
+  .swiper-button-prev {
+    color: white;
+  }
+
+  .img-passos {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .btn-participar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-participar  button {
+    width: 20%;
+    height: 70px;
+   padding-top: 3vh;
+    border: none;
+    font-size: 50px;
+    font-family: 'Hyperwave-two';
+    background-color: #420303;
+    color: #fffff6;
+
+  }
+
+  .btn-participar  button:hover {
+   background-color: #131313;
   }
