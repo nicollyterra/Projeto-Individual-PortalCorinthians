@@ -76,3 +76,5 @@ const switchModal = () => { //não usa o this próprio
         switchModal()
     }
     }
+
+   

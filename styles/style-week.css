@@ -1,0 +1,175 @@
+@font-face {
+    font-family: 'Hyperwave-two';
+    src: url("../Hyperwave.otf");
+  }
+
+  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body,
+  html {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    background-color: #fffff6;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  
+  }
+  
+  .navbar {
+    position: fixed;
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    height: 70px;
+    align-items: center;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    color: #131313;
+    background-color: transparent
+  }
+  
+  .navbar.scrolled {
+    background-color: #420303;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.438);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+    z-index: 10;
+    height: 80px;
+    color: whitesmoke;
+  }
+  
+  .logo img {
+    width: 70px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .nav-links li a {
+    position: relative; /* Necessário para posicionar a linha */
+    text-decoration: none;
+    color: #131313;
+    font-size: 19px;
+    text-transform: uppercase;
+  }
+  
+  .nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #980303;
+    left: 0;
+    bottom: -5px; /* afasta a linha do texto */
+    transition: width 0.3s ease;
+  }
+  
+  .nav-links li a:hover::after {
+    width: 100%;
+  }
+  
+  .botao-login {
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+    font-size: large;
+    font-weight: 600;
+    transition: 0.6s;
+    background-color: #fffff6;
+  }
+  
+  .botao-login:hover {
+    background-color: #847248;
+    color: #fffff6;
+  }
+
+  .user-icon img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carrossel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .slides-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+  }
+  
+  .slide {
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  #explicacao {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .titulo {
+    text-align: center;
+    padding-top: 3%;
+    font-size: 70px;
+    font-family: 'Hyperwave-two';
+    margin-top: 3%;
+  }
+
+
+
+  .descricao {
+    height: 80%;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10%;
+  }
+
+  .desc , .img-desc {
+    width: 50%;
+    height: 100%;
+    z-index: 10;
+  }
+
+  .desc {
+    font-size: 20px;
+    text-align: justify;
+    
+  }
+
+  .img-desc img {
+    height: 100%;
+    width: 100%;
+    
+  }
+
+  .titulo-desc {
+    font-size: 50px;
+    text-align: center;
+    margin-top: -5vh;
+    margin-bottom: 5vh;
+  }
+
+  .square {
+    width: 400px;
+    height: 300px;
+    background-color: #720000c7;
+    margin-right: -65%;
+    margin-top: -15%;
+  }

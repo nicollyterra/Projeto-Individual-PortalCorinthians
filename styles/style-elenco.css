@@ -80,6 +80,7 @@ body, html {
   width: 100%; 
   padding-top: 3vh;
   display: flex;
+ 
   background-color: #22012c;
   flex-direction: column;
   justify-content: space-around;
@@ -129,10 +130,11 @@ body, html {
 }
 
 .desc-2 {
-  width: 60%;
+  width: 70%;
   font-size: 25px;
   margin-top: -4%;
-  color: #6d5c33;
+  color: #fffff6;
+  text-shadow: rgba(0, 0, 0, 0.41) 0px 3px 8px;
 
 }
 
