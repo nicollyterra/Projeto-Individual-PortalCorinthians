@@ -39,7 +39,7 @@ html {
 .hero {
   position: relative;
   height: 100vh;
-  background: url('/imagens/fundo-inicio.svg') no-repeat center center/cover;
+  background: url('/public/imagens/fundo-inicio.svg') no-repeat center center/cover;
   color: white;
 }
 

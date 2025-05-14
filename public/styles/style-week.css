@@ -289,9 +289,29 @@
     font-family: 'Hyperwave-two';
     background-color: #420303;
     color: #fffff6;
-
+    margin-bottom: 8%;
   }
 
   .btn-participar  button:hover {
    background-color: #131313;
+  }
+
+  .curiosidadades-torcida {
+    height: 700px;
+    width: 100%;
+    background-color: #420303;
+  }
+
+  .textinho {
+    width: 100%;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .texto-intro {
+    width: 53%;
+    color: #fffff6;
+    letter-spacing: 1px;
   }
