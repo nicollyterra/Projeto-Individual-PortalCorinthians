@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  background-color: #f1f1eb;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  padding: 20px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  top: 0;
+  background-color: #131313;
+  left: 0;
+   height: 70px;
+   font-family: 'Bebas Neue', sans-serif;
+   font-weight: 400;
+}
+
+.navbar.scrolled {
+  background-color: #131313;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.438);
+  transition: background-color 0.5s ease, box-shadow 0.5s ease;
+  z-index: 10;
+  height: 80px;
+}
+
+.logo img {
+  width: 70px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  position: relative; /* Necessário para posicionar a linha */
+  text-decoration: none;
+  color: white;
+  font-size: 19px;
+  text-transform: uppercase;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #e9e9e9;
+  left: 0;
+  bottom: -5px; /* afasta a linha do texto */
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.botao-login {
+  width: 80px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: large;
+  font-weight: 600;
+  transition: 0.6s;
+  background-color: #fffff6;
+}
+
+.botao-login:hover {
+  background-color: #847248;
+  color: #fffff6;
+}
+.content { 
+    height: 100%;
+    width: 100%;
+    margin-top: 8%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.dados-perfil {
+    width: 55%;
+    height: 300px;
+}
+
+.titulo-perfil {
+    width: 100%;
+    height: 10%;
+     font-size: 30px;
+    display: flex;
+    align-items: end;
+}
+
+.container-dados {
+    width: 100%;
+    height: 90%;
+    background-color: #131313;
+    display: flex;
+    flex-direction: row;
+}
+
+.infos-perfil, .solicitacoes {
+    width: 50%;
+    height: 100%;
+    border: #e9e9e9 2px solid;
+}
+
+.dash-user { 
+    width: 55%;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+    
+}
+
+.infos-dash {
+    width: 100%;
+    height: 12%;
+}
+
+.titulo {
+    width: 100%;
+    height: 50%;
+    font-size: 30px;
+    display: flex;
+    align-items: end;
+}
+
+.dashboard {
+    width: 100%;
+    height: 80%;
+    background-color: #fffff6;
+    box-shadow: -9px 8px 98px -10px rgba(141, 141, 141, 1);
+}
+
+.kpis {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.grafico {
+    height: 90%;
+    width: 100%;
+    background-color: #fffff6;
+}
+
+.kpi {
+    width: 25%;
+    height: 60%;
+    background-color: #131313;
+}
