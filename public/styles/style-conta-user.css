@@ -24,9 +24,9 @@ html {
   top: 0;
   background-color: #131313;
   left: 0;
-   height: 70px;
-   font-family: 'Bebas Neue', sans-serif;
-   font-weight: 400;
+  height: 70px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
 }
 
 .navbar.scrolled {
@@ -48,7 +48,8 @@ html {
 }
 
 .nav-links li a {
-  position: relative; /* Necessário para posicionar a linha */
+  position: relative;
+  /* Necessário para posicionar a linha */
   text-decoration: none;
   color: white;
   font-size: 19px;
@@ -62,7 +63,8 @@ html {
   height: 2px;
   background: #e9e9e9;
   left: 0;
-  bottom: -5px; /* afasta a linha do texto */
+  bottom: -5px;
+  /* afasta a linha do texto */
   transition: width 0.3s ease;
 }
 
@@ -86,87 +88,160 @@ html {
   background-color: #847248;
   color: #fffff6;
 }
-.content { 
-    height: 100%;
-    width: 100%;
-    margin-top: 8%;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+.content {
+  height: 100%;
+  width: 100%;
+  margin-top: 8%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 .dados-perfil {
-    width: 55%;
-    height: 300px;
+  width: 55%;
+  height: 300px;
 }
 
 .titulo-perfil {
-    width: 100%;
-    height: 10%;
-     font-size: 30px;
-    display: flex;
-    align-items: end;
+  width: 100%;
+  height: 10%;
+  font-size: 30px;
+  display: flex;
+  align-items: end;
 }
 
 .container-dados {
-    width: 100%;
-    height: 90%;
-    background-color: #131313;
-    display: flex;
-    flex-direction: row;
+  width: 100%;
+  height: 100%;
+  background-color: #131313;
+  display: flex;
+  flex-direction: row;
 }
 
-.infos-perfil, .solicitacoes {
-    width: 50%;
-    height: 100%;
-    border: #e9e9e9 2px solid;
+.infos-perfil {
+  width: 55%;
+  height: 100%;
+  border: #e9e9e9 2px solid;
+  display: flex;
+  flex-direction: row;
 }
 
-.dash-user { 
-    width: 55%;
-    height: 700px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 3%;
-    
+.solicitacoes {
+  width: 45%;
+  height: 100%;
+  border: #e9e9e9 2px solid;
+  display: flex;
+  flex-direction: row;
+}
+
+.upload-img-user {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.upar-foto {
+  width: 100%;
+  height: 20%;
+  margin-top: 3vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+ #preview {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border: 3px solid #847248;
+      background-color: #333;
+    }
+
+  .botao {
+      background-color: #847248;
+      border: none;
+      padding: 5px 10px;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 40%;
+      margin: 5px;
+      font-family: 'Bebas Neue', sans-serif;
+    }
+
+
+
+#fotoPerfil {
+  display: none;
+}
+
+.infos-user {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: -3vh;
+  color: #fffff6;
+
+}
+
+.infos-user p {
+  font-size: 20px;
+}
+
+
+.dash-user {
+  width: 55%;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3%;
+
 }
 
 .infos-dash {
-    width: 100%;
-    height: 12%;
+  width: 100%;
+  height: 12%;
 }
 
 .titulo {
-    width: 100%;
-    height: 50%;
-    font-size: 30px;
-    display: flex;
-    align-items: end;
+  width: 100%;
+  height: 50%;
+  font-size: 30px;
+  display: flex;
+  align-items: end;
 }
 
 .dashboard {
-    width: 100%;
-    height: 80%;
-    background-color: #fffff6;
-    box-shadow: -9px 8px 98px -10px rgba(141, 141, 141, 1);
+  width: 100%;
+  height: 80%;
+  background-color: #fffff6;
+  box-shadow: -9px 8px 98px -10px rgba(141, 141, 141, 1);
 }
 
 .kpis {
-    height: 20%;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  height: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .grafico {
-    height: 90%;
-    width: 100%;
-    background-color: #fffff6;
+  height: 90%;
+  width: 100%;
+  background-color: #fffff6;
 }
 
 .kpi {
-    width: 25%;
-    height: 60%;
-    background-color: #131313;
+  width: 25%;
+  height: 60%;
+  background-color: #131313;
 }

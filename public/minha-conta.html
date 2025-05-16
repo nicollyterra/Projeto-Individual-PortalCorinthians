@@ -1,53 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400..900&family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Special+Gothic+Expanded+One&display=swap"
-    rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400..900&family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Special+Gothic+Expanded+One&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles/style-conta-user.css">
-    <title>MInha conta</title>
+    <title>Minha conta</title>
 </head>
+
 <body>
     <nav class="navbar">
-      <div class="logo">
-        <img src="imagens/logo-navbar.svg" alt="Logo Corinthians">
-      </div>
-      <ul class="nav-links">
-        <li><a href=#news>Notícias</a></li>
-        <li><a href=#jogos>Jogos</a></li>
-        <li><a href=#torcida>Fiel Torcida</a></li>
-        <li><a href=#historia>História</a></li>
-        <li><a href=#modalidades>Modalidades</a></li>
-        <li><div class="toggle-button">Perfil</div></li>
-      </ul>
-      <div class="user-icon">
-        <button class="botao-login"><a href="login.html" style="text-decoration: none; color: #131313;">Login</a></button>
-      </div>
+        <div class="logo">
+            <img src="imagens/logo-navbar.svg" alt="Logo Corinthians">
+        </div>
+        <ul class="nav-links">
+            <li><a href=#news>Notícias</a></li>
+            <li><a href=#jogos>Jogos</a></li>
+            <li><a href=#torcida>Fiel Torcida</a></li>
+            <li><a href=#historia>História</a></li>
+            <li><a href=#modalidades>Modalidades</a></li>
+            <li>
+                <div class="toggle-button">Perfil</div>
+            </li>
+        </ul>
+        <div class="user-icon">
+            <button class="botao-login"><a href="login.html"
+                    style="text-decoration: none; color: #131313;">Login</a></button>
+        </div>
     </nav>
-    
+
     <div class="content">
-        
+
         <div class="dados-perfil">
             <div class="titulo-perfil">
-            <p>Minha conta</p>
+                <p>Minha conta</p>
+            </div>
+
+            <div class="container-dados">
+
+                <div class="infos-perfil">
+
+                    <div class="upload-img-user">
+                        <div class="img-user">
+                            <img id="preview" src="" alt="Foto de perfil">
+                        </div>
+
+                        <div class="upar-foto">
+                            <input name="foto" id="foto" type="file" />
+                            <button onclick="enviar()">Enviar</button>
+                        </div>
+                    </div>
+
+                    <div class="infos-user">
+                        <p>Nome</p>
+                        <span id="b_usuario">usuário</span>
+
+                        <br><br>
+
+                        <p>Email</p>
+                        <span id="b_email">email@gmail</span>
+                    </div>
+                </div>
+                <div class="solicitacoes"></div>
+            </div>
         </div>
 
-        <div class="container-dados">
-            <div class="infos-perfil"></div>
-            <div class="solicitacoes"></div>
-        </div>
-        </div>
 
-       
         <div class="dash-user">
             <div class="infos-dash">
-                <div class="titulo"><p>Estátisticas da votação do último jogo</p></div>
-                <div class="infos-jogo"><p></p></div>
+                <div class="titulo">
+                    <p>Estátisticas da votação do último jogo</p>
+                </div>
+                <div class="infos-jogo">
+                    <p></p>
+                </div>
             </div>
 
             <div class="dashboard">
@@ -62,8 +94,54 @@
             </div>
         </div>
     </div>
-    
+
 
     </div>
 </body>
+
 </html>
+
+<script>
+  b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+  b_email.innerHTML = sessionStorage.EMAIL_USUARIO;
+
+  // Carregar imagem de perfil salva (caminho vem da sessionStorage ou de uma API)
+  const caminhoImagem = sessionStorage.FOTO_USUARIO || "https://via.placeholder.com/150";
+  document.getElementById("preview").src = caminhoImagem;
+
+  foto.addEventListener('change', function () {
+    const file = this.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        document.getElementById('preview').src = e.target.result;
+      }
+      reader.readAsDataURL(file);
+    }
+  });
+
+  function enviar() {
+    const formData = new FormData();
+    formData.append('foto', foto.files[0]);
+
+    fetch("/usuarios/minha-conta.html", {
+      method: "POST",
+      body: formData
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.caminhoFoto) {
+          // Atualiza a sessionStorage com a nova imagem
+          sessionStorage.FOTO_USUARIO = data.caminhoFoto;
+          document.getElementById('preview').src = data.caminhoFoto;
+          alert("Foto enviada com sucesso!");
+        } else {
+          alert("Erro ao salvar imagem.");
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+</script>

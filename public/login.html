@@ -87,8 +87,9 @@
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
 
-                    window.location = "./minha-conta.html";
-
+                   setInterval(() => {
+                     window.location = "./minha-conta.html";
+                    }, 2000); // 2000 milissegundos = 2 segundos
                 });
 
             } else {
