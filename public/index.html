@@ -51,7 +51,7 @@
 
     <section>
       <div class="geral">
-        
+
       </div>
     </section>
 
@@ -288,7 +288,7 @@
             <div class="geralmodal">
 
               <div class="img-jogador">
-                <div class="img-jog">
+                <div class="img-jog"  id="foto-jogador">
 
                 </div>
               </div>
@@ -324,8 +324,8 @@
 
 
                 <div class="configs-jogador">
-                  <p>Jogador escolhido:</p>
-                  <p>Posição:</p>
+                  <p>Jogador escolhido: <span id="nome-jogador"></span></p>
+                  <p>Posição: <span id="posicao-jogador"></span></p>
                 </div>
 
                 <div class="botao-modal">
@@ -720,3 +720,107 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+<script>
+  // Vetor de jogadores em formato JSON
+  const jogadores = [
+    {
+      id: "hugo_souza",
+      nome: "Hugo Souza",
+      posicao: "Goleiro",
+      imagem: "hugo-souza.png"
+    },
+    {
+      id: "memphis",
+      nome: "Memphis Depay",
+      posicao: "Atacante",
+      imagem: "memphis.png"
+    },
+    {
+      id: "ya9",
+      nome: "Yuri Alberto",
+      posicao: "Atacante",
+      imagem: "yuri.png"
+    },
+    {
+      id: "garro",
+      nome: "Rodrigo Garro",
+      posicao: "Meia",
+      imagem: "garro.png"
+    },
+    {
+      id: "romero",
+      nome: "Angel Romero",
+      posicao: "Atacante",
+      imagem: "romero.png"
+    },
+    {
+      id: "bidon",
+      nome: "Breno Bidon",
+      posicao: "Meio-campo",
+      imagem: "bidon.png"
+    },
+    {
+      id: "carrilo",
+      nome: "André Carrillo",
+      posicao: "Meia",
+      imagem: "Carrilo.png"
+    },
+    {
+      id: "magno",
+      nome: "Talles Magno",
+      posicao: "Atacante",
+      imagem: "magno.png"
+    },
+    {
+      id: "coronado",
+      nome: "Igor Coronado",
+      posicao: "Meia",
+      imagem: "coronado.png"
+    },
+    {
+      id: "martinez",
+      nome: "José Martínez",
+      posicao: "Zagueiro",
+      imagem: "martinez.png"
+    },
+    {
+      id: "matheuzinho",
+      nome: "Matheuzinho",
+      posicao: "Lateral-direito",
+      imagem: "matheuzinho.png"
+    },
+    {
+      id: "anglieri",
+      nome: "Fabrizio Angileri",
+      posicao: "Lateral-esquerdo",
+      imagem: "angileri.png"
+    }
+  ];
+
+  // Elementos do DOM
+  const select = document.getElementById("escolha_jog");
+  const nomeSpan = document.getElementById("nome-jogador");
+  const posicaoSpan = document.getElementById("posicao-jogador");
+  const fotoDiv = document.getElementById("foto-jogador");
+
+  // Atualiza as informações quando seleciona um jogador
+  select.addEventListener("change", () => {
+    const idSelecionado = select.value;
+    const jogador = jogadores.find(j => j.id === idSelecionado);
+
+     if (jogador) {
+    nomeSpan.textContent = jogador.nome;
+    posicaoSpan.textContent = jogador.posicao;
+   fotoDiv.style.backgroundImage = `url('/imagens/jogadoresMasc/${jogador.imagem}')`;
+    fotoDiv.style.backgroundSize = "cover";
+    fotoDiv.style.backgroundPosition = "center";
+    fotoDiv.style.border = "2px solid #131313";
+  } else {
+    nomeSpan.textContent = "-";
+    posicaoSpan.textContent = "-";
+    fotoDiv.style.backgroundImage = "none";
+    fotoDiv.style.backgroundColor = "#8a7745";
+  }
+  });
+</script>

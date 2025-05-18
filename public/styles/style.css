@@ -1169,7 +1169,7 @@ select {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 10%;
+  padding-left: 20%;
 }
 
 .configs-jogador  p {
