@@ -24,4 +24,8 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
+router.get("/buscar/:id", function (req, res) {
+    usuarioController.buscarPorId(req, res);
+});
+
 module.exports = router;

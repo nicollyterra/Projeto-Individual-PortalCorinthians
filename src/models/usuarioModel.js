@@ -18,7 +18,17 @@ function cadastrar(nome, dtNasc, email, senha, imagem_usuario) {
     return database.executar(instrucao);
 }
 
+function buscarPorId(idUsuario) {
+    var instrucaoSql = `
+        SELECT nome, email, imagem_usuario 
+        FROM usuario 
+        WHERE idUsuario = ${idUsuario};
+    `;
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar, 
-    cadastrar
+    cadastrar,
+    buscarPorId
 };

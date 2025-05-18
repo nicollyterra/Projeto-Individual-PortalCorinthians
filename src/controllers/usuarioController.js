@@ -21,6 +21,7 @@ function autenticar(req, res) {
                             id: resultadoAutenticar[0].idUsuario,
                             email: resultadoAutenticar[0].email,
                             nome: resultadoAutenticar[0].nome,
+                              imagem_usuario: resultadoAutenticar[0].imagem_usuario
                         })
                         
                     } else if (resultadoAutenticar.length == 0) {
@@ -59,10 +60,26 @@ function cadastrar(req, res) {
         });
 }
 
+function buscarPorId(req, res) {
+    var idUsuario = req.params.id;
 
+    usuarioModel.buscarPorId(idUsuario)
+        .then(resultado => {
+            if (resultado.length > 0) {
+                res.json(resultado[0]);
+            } else {
+                res.status(404).send("Usuário não encontrado");
+            }
+        })
+        .catch(erro => {
+            console.log("Erro ao buscar usuário por ID:", erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
 
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    buscarPorId
 }

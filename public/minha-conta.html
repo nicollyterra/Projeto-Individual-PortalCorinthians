@@ -47,9 +47,7 @@
                 <div class="infos-perfil">
 
                     <div class="upload-img-user">
-                        <div class="img-user">
-                            <img id="preview" src="/uploads/nome-da-foto.jpg" alt="Foto de perfil">
-                        </div>
+                        
 
                     </div>
 
@@ -99,24 +97,24 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-  b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-  b_email.innerHTML = sessionStorage.EMAIL_USUARIO;
+  
 
-  // Carregar imagem de perfil salva (caminho vem da sessionStorage ou de uma API)
-  const caminhoImagem = sessionStorage.FOTO_USUARIO || "https://via.placeholder.com/150";
-  document.getElementById("preview").src = caminhoImagem;
+  const idUsuario = sessionStorage.ID_USUARIO;
 
-  foto.addEventListener('change', function () {
-    const file = this.files[0];
+  fetch(`/usuarios/buscar/${idUsuario}`)
+    .then(res => res.json())
+    .then(dados => {
+      b_usuario.innerHTML = dados.nome;
+      b_email.innerHTML = dados.email;
 
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        document.getElementById('preview').src = e.target.result;
-      }
-      reader.readAsDataURL(file);
-    }
-  });
+      const caminhoImagem = dados.imagem_usuario
+        ? `/uploads/${dados.imagem_usuario}`
+        : "https://via.placeholder.com/150";
 
- 
+      const divFoto = document.querySelector(".upload-img-user");
+      divFoto.innerHTML = `<img id="preview" src="${caminhoImagem}" alt="Foto de perfil" width="100" height="100">`;
+    })
+    .catch(erro => {
+      console.error("Erro ao carregar perfil:", erro);
+    });
 </script>
