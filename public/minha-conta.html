@@ -18,7 +18,7 @@
     <nav class="navbar">
         <div class="logo">
             <a href="index.html"><img src="imagens/logo-navbar.svg" alt="Logo Corinthians"></a>
-            
+
         </div>
         <ul class="nav-links">
             <li><a href=#news>Notícias</a></li>
@@ -48,7 +48,7 @@
                 <div class="infos-perfil">
 
                     <div class="upload-img-user">
-                        
+
 
                     </div>
 
@@ -79,14 +79,28 @@
 
             <div class="dashboard">
                 <div class="kpis">
-                    <div class="kpi"></div>
-                    <div class="kpi"></div>
-                    <div class="kpi"></div>
+                    <div class="kpi">
+                        <div class="desc-kpi">Total de votos</div>
+                        <div class="contadores"><span>500</span></div>
+                    </div>
+                    <div class="kpi">
+                        <div class="desc-kpi">Jogador mais votado</div>
+                        <div class="contadores"><span></span></div>
+                    </div>
+                    <div class="kpi">
+                        <div class="desc-kpi">Jogador menos votado</div>
+                        <div class="contadores"></div>
+                    </div>
                 </div>
-                <div class="grafico">
 
+
+                <div class="grafico">
+                    <p>Ranking dos jogadores mais votados</p>
+                    <canvas id="myChart"></canvas>
                 </div>
+
             </div>
+
         </div>
     </div>
 
@@ -98,24 +112,61 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-  
 
-  const idUsuario = sessionStorage.ID_USUARIO;
 
-  fetch(`/usuarios/buscar/${idUsuario}`)
-    .then(res => res.json())
-    .then(dados => {
-      b_usuario.innerHTML = dados.nome;
-      b_email.innerHTML = dados.email;
+    const idUsuario = sessionStorage.ID_USUARIO;
 
-      const caminhoImagem = dados.imagem_usuario
-        ? `/uploads/${dados.imagem_usuario}`
-        : "https://via.placeholder.com/150";
+    fetch(`/usuarios/buscar/${idUsuario}`)
+        .then(res => res.json())
+        .then(dados => {
+            b_usuario.innerHTML = dados.nome;
+            b_email.innerHTML = dados.email;
 
-      const divFoto = document.querySelector(".upload-img-user");
-      divFoto.innerHTML = `<img id="preview" src="${caminhoImagem}" alt="Foto de perfil" width="100" height="100">`;
-    })
-    .catch(erro => {
-      console.error("Erro ao carregar perfil:", erro);
-    });
+            const caminhoImagem = dados.imagem_usuario
+                ? `/uploads/${dados.imagem_usuario}`
+                : "https://via.placeholder.com/150";
+
+            const divFoto = document.querySelector(".upload-img-user");
+            divFoto.innerHTML = `<img id="preview" src="${caminhoImagem}" alt="Foto de perfil" width="100" height="100">`;
+        })
+        .catch(erro => {
+            console.error("Erro ao carregar perfil:", erro);
+        });
+
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['A'],
+            datasets: [
+                {
+                    label: 'Dataset 1',
+                    data: [1, 2, 3],
+                    borderColor: '#770303',
+                    backgroundColor: '#770303',
+                },
+                {
+                    label: 'Dataset 2',
+                    data: [2, 3, 4],
+                    borderColor: '#ffffa1',
+                    backgroundColor: '#ffffa1',
+                },
+
+                {
+                    label: 'Dataset 3',
+                    data: [2, 3, 4],
+                    borderColor: '#131313',
+                    backgroundColor: '#131313',
+                },
+
+                {
+                    label: 'Dataset 4',
+                    data: [2, 3, 4],
+                    borderColor: '#545454',
+                    backgroundColor: '#545454',
+                }
+
+            ]
+       } });
 </script>
