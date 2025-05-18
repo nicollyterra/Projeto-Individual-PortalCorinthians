@@ -10,33 +10,15 @@ var database = require("../database/config")
  }
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
-function cadastrar(nome, dtNasc, email, senha ) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, dtNasc, email, senha);
-    
-    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
-    //  e na ordem de inserção dos dados.
-    var instrucaoSql = `
-        INSERT INTO usuario (nome, dtNasc, email, senha ) VALUES ('${nome}', '${dtNasc}', '${email}', '${senha}');
+function cadastrar(nome, dtNasc, email, senha, imagem_usuario) {
+    var instrucao = `
+        INSERT INTO usuario (nome, dtNasc, email, senha, imagem_usuario)
+        VALUES ('${nome}', '${dtNasc}', '${email}', '${senha}', '${imagem_usuario}');
     `;
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
+    return database.executar(instrucao);
 }
-
-function imguser(foto) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function imguser():", foto);
-    
-    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
-    //  e na ordem de inserção dos dados.
-    var instrucaoSql = `
-        INSERT INTO usuario (foto) VALUES ('${foto}');
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
-
 
 module.exports = {
     autenticar, 
-    cadastrar, 
-    imguser
+    cadastrar
 };

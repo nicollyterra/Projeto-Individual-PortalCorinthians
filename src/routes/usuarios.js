@@ -1,19 +1,27 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
+const usuarioController = require("../controllers/usuarioController");
+const multer = require("multer");
+const path = require("path");
 
-var usuarioController = require("../controllers/usuarioController");
+// Configuração de armazenamento com multer
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "public/uploads/"); // Crie esta pasta!
+    },
+    filename: function (req, file, cb) {
+        const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1E9);
+        cb(null, uniqueSuffix + path.extname(file.originalname));
+    }
+});
+const upload = multer({ storage: storage });
 
-//Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
-router.post("/cadastrar", function (req, res) {
+router.post("/cadastrar", upload.single('imagem_usuario'), function (req, res) {
     usuarioController.cadastrar(req, res);
-})
+});
 
 router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
-});
-
-router.post("/imguser", function (req, res) {
-    usuarioController.imguser(req, res);
 });
 
 module.exports = router;

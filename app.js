@@ -34,6 +34,7 @@ app.use("/avisos", avisosRouter);
 app.use("/medidas", medidasRouter);
 app.use("/aquarios", aquariosRouter);
 app.use("/empresas", empresasRouter);
+app.use(express.static("public"));
 
 app.listen(PORTA_APP, function () {
     console.log(`
