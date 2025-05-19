@@ -90,7 +90,7 @@ html {
 }
 
 .content {
-  height: 100%;
+
   width: 100%;
   margin-top: 8%;
   justify-content: center;
@@ -123,7 +123,6 @@ html {
 .infos-perfil {
   width: 55%;
   height: 100%;
-  border: #e9e9e9 2px solid;
   display: flex;
   flex-direction: row;
 }
@@ -131,7 +130,7 @@ html {
 .solicitacoes {
   width: 45%;
   height: 100%;
-  border: #e9e9e9 2px solid;
+
   display: flex;
   flex-direction: row;
 }
@@ -276,6 +275,16 @@ html {
   padding-top: 1vh;
   color: #fffff6;
   width: 100%;
-  background-color: aqua;
   height: 50%;
+}
+
+.propaganda-lpt {
+  height: 200px;
+  width: 55%;
+  margin-top: 8vh;
+}
+
+.propaganda-lpt img {
+  width: 100%;
+  height: 100%;
 }
