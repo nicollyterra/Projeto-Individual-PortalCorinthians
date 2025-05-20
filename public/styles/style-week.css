@@ -138,7 +138,65 @@
     margin-top: 3%;
   }
 
+.titulo2 { text-align: center;
+    padding-top: 3%;
+    font-size: 60px;
+    font-family: 'Hyperwave-two';
+    margin-top: 1%;
+    margin-bottom: 2vh;
+  }
 
+.desc-modal {
+  text-align: center;
+  font-family: 'Bebas Neue';
+  font-size: 20px;
+}
+
+.textarea {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 4vh;
+  justify-content: center;
+  align-items: center;
+}
+
+textarea {
+  width: 80%;
+  height: 30%;
+}
+
+label {
+  font-family: 'Bebas Neue';
+  align-self: flex-start;
+  margin-left: 10%;
+  font-size: larger;
+}
+
+.input_ft {
+  margin-top: 5vh;
+}
+
+.botoes {
+  width: 50%;
+  margin-top: 15%;
+  justify-self: center;
+  align-self: flex-end;
+  display: flex;
+  height: 7%;
+  justify-content: space-evenly;
+}
+
+.img-relato {
+  width: 50%;
+  height: 200px;
+  margin-top: 2vh;
+  background-image: url('../imagens/3.svg');
+  background-color: #131313;
+  background-position: center;
+  background-size: cover;
+  margin-bottom: -9%;
+}
 
   .descricao {
     height: 80%;
@@ -273,14 +331,14 @@
     display: flex;
   }
 
-  .btn-participar {
+.btn_participar {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .btn-participar  button {
+ .btn_participar  button {
     width: 20%;
     height: 70px;
    padding-top: 3vh;
@@ -295,6 +353,8 @@
   .btn-participar  button:hover {
    background-color: #131313;
   }
+
+
 
   .curiosidadades-torcida {
     height: 700px;
@@ -315,3 +375,36 @@
     color: #fffff6;
     letter-spacing: 1px;
   }
+
+  dialog {
+  border: none;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  width: 50%;
+  height: 85%;
+  justify-self: center;
+  align-self: center;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #333;
+  position: fixed;
+
+}
+
+/* botão dentro do dialog */
+dialog button {
+
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 40%;
+  height: 90%;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.563); /* escurece o fundo */
+}

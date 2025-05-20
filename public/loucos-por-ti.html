@@ -183,9 +183,38 @@
         <img src="imagens/corinthians-week/passos.svg" alt="">
       </div>
 
-      <div class="btn-participar">
-        <button>Participar agora!</button>
+      <dialog id="modal_lpt">
+        <div class="titulo2"><p>Faça parte da campanha <span style="color: rgb(92, 0, 0);">Loucos por ti!</span></p></div>
+
+        <div class="desc-modal">Nos envie abaixo sua foto em algum momento com o timão como um jogo ou 
+        apenas você com o manto, logo em seguida adicione um texto contando sobre como o Corinthians impactou na 
+         e impacta sua vida!</div>
+
+         <div class="textarea">
+          <label for="">Relato</label>
+          <textarea name="" id=""></textarea>
+
+          <label for="" class="input_ft">Sua foto com o timão!</label>
+          <input type="file" onchange="carregar()" id="img_relato">
+
+          <div class="img-relato" id="div_foto">
+        
+          </div>
+         </div>
+
+         <div class="botoes">
+          <button id="fecharDialogo" style="background-color: rgb(81, 0, 0);">Fechar</button>
+          <button id="enviar" style="background-color: #131313;">Enviar</button>
+         </div>
+        
+      </dialog>
+
+      <div class="btn_participar">
+        <button id="abrirDialogo">Participar agora!</button>
       </div>
+
+
+
     </section>
 
     <section id="curiosidades">
@@ -194,16 +223,17 @@
 
         <div class="textinho">
           <div class="texto-intro">
-             <p>O Corinthians vai muito além das quatro linhas. <br><br>
-            É suor, raça, emoção — mas, acima de tudo, é a força de uma torcida que nunca abandona. Nesta seção, você
-            vai reviver os momentos que fizeram a Neo Química Arena tremer, os gritos de gol que ecoaram pelas
-            arquibancadas e os mosaicos que pararam o Brasil.
+            <p>O Corinthians vai muito além das quatro linhas. <br><br>
+              É suor, raça, emoção — mas, acima de tudo, é a força de uma torcida que nunca abandona. Nesta seção, você
+              vai reviver os momentos que fizeram a Neo Química Arena tremer, os gritos de gol que ecoaram pelas
+              arquibancadas e os mosaicos que pararam o Brasil.
 
-            Aqui estão reunidos registros da Fiel Torcida em sua essência: nas vitórias épicas, nos jogos sofridos, nas
-            recepções históricas e nos cantos que embalam o time do povo há mais de um século.
+              Aqui estão reunidos registros da Fiel Torcida em sua essência: nas vitórias épicas, nos jogos sofridos,
+              nas
+              recepções históricas e nos cantos que embalam o time do povo há mais de um século.
 
-            Se emocione de novo. Cante de novo. Vibra como se fosse ontem. Porque cada momento vivido pela Fiel merece
-            ser lembrado para sempre.</p>
+              Se emocione de novo. Cante de novo. Vibra como se fosse ontem. Porque cada momento vivido pela Fiel merece
+              ser lembrado para sempre.</p>
           </div>
         </div>
 
@@ -216,3 +246,22 @@
 </body>
 
 </html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+  const dialogo = document.getElementById('modal_lpt');
+  const btnAbrir = document.getElementById('abrirDialogo');
+  const btnFechar = document.getElementById('fecharDialogo');
+
+  btnAbrir.addEventListener('click', () => dialogo.showModal());
+  btnFechar.addEventListener('click', () => dialogo.close());
+});
+
+function carregar() {
+    var imgRelato = img_relato.files[0]
+    imgRelato = URL.createObjectURL(imgRelato)
+
+  console.log(imgRelato)
+    div_foto.style.backgroundImage = `url(${imgRelato})`
+}
+</script>
