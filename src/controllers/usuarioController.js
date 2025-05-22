@@ -17,12 +17,7 @@ function autenticar(req, res) {
                     console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
 
                     if (resultadoAutenticar.length == 1) {
-                        res.json({
-                            id: resultadoAutenticar[0].idUsuario,
-                            email: resultadoAutenticar[0].email,
-                            nome: resultadoAutenticar[0].nome,
-                              imagem_usuario: resultadoAutenticar[0].imagem_usuario
-                        })
+                        res.json(resultadoAutenticar)
                         
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
@@ -78,8 +73,29 @@ function buscarPorId(req, res) {
 }
 
 
+function enviar(req, res) {
+    var relato = req.body.relato;
+    var fkUsuario = req.body.fkUsuarioVincular;
+    // Nome do arquivo da imagem enviada
+    var img_relato = req.file ? req.file.filename : null;
+
+    if (!relato|| !img_relato ) {
+        return res.status(400).send("Preencha todos os campos obrigatórios!");
+    }
+
+    usuarioModel.enviar(relato, img_relato, fkUsuario)
+        .then((resultado) => res.status(200).json(resultado))
+        .catch((erro) => {
+            console.log("Erro no envio:", erro);
+            res.status(500).json(erro.sqlMessage || erro.message);
+        });
+        
+}
+
+
 module.exports = {
     autenticar,
     cadastrar,
-    buscarPorId
+    buscarPorId, 
+    enviar
 }

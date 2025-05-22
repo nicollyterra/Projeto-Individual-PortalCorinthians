@@ -192,7 +192,7 @@
 
          <div class="textarea">
           <label for="">Relato</label>
-          <textarea name="" id=""></textarea>
+          <textarea name="" id="ipt_relato"></textarea>
 
           <label for="" class="input_ft">Sua foto com o timão!</label>
           <input type="file" onchange="carregar()" id="img_relato">
@@ -204,7 +204,7 @@
 
          <div class="botoes">
           <button id="fecharDialogo" style="background-color: rgb(81, 0, 0);">Fechar</button>
-          <button id="enviar" style="background-color: #131313;">Enviar</button>
+          <button id="enviar" style="background-color: #131313;" onclick="enviar()">Enviar</button>
          </div>
         
       </dialog>
@@ -264,4 +264,45 @@ function carregar() {
   console.log(imgRelato)
     div_foto.style.backgroundImage = `url(${imgRelato})`
 }
+
+
+    const idUsuario = sessionStorage.ID_USUARIO;
+
+function enviar() {
+    const relato = ipt_relato.value;
+    const foto = document.getElementById('img_relato');
+    const fkUsuarioVincular = idUsuario
+
+    if (!relato || !foto ) {
+      alert("Preencha todos os campos!");
+      return;
+    }
+
+    const formData = new FormData();
+    console.log(formData, "oieeeeeeee")
+    formData.append("relato", relato);
+
+    console.log(formData, "oie")
+    console.log(fkUsuarioVincular, "fkUsuarioVincular")
+    
+    formData.append("img_relato", foto.files[0]);  
+    formData.append("fkUsuarioVincular", fkUsuarioVincular);
+
+    
+
+    fetch(`/usuarios/enviar/${idUsuario}`, {
+      method: "POST",
+      body: formData
+    })
+      .then(res => {
+        if (res.ok) {
+          alert("Seu relato foi enviado com sucesso! Fique atento ao progresso de sua solicitação em solicitações (perto dos dados de seu perfil!)");
+        } else {
+          alert("Erro ao enviar");
+        }
+      })
+      .catch(err => {
+        console.error("Erro:", err);
+      });
+  }
 </script>

@@ -28,4 +28,9 @@ router.get("/buscar/:id", function (req, res) {
     usuarioController.buscarPorId(req, res);
 });
 
+router.post("/enviar/:id", upload.single('img_relato'), function (req, res) {
+    usuarioController.enviar(req, res);
+});
+
+
 module.exports = router;

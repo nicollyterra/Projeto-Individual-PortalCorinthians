@@ -73,23 +73,29 @@
             body: JSON.stringify({
                 emailServer: emailVar,
                 senhaServer: senhaVar
+
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
 
+         
             if (resposta.ok) {
                 console.log(resposta);
 
                 resposta.json().then(json => {
                     console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
+                    console.log("aaa",JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = JSON.stringify(json[0].email);
+                    sessionStorage.NOME_USUARIO = JSON.stringify(json[0].nome);
+                      // GARANTA que isso exista:
+                    sessionStorage.ID_USUARIO = JSON.stringify(json[0].idUsuario);
+
 
                    setInterval(() => {
-                     window.location = "./minha-conta.html";
+                         window.location = "./minha-conta.html";
                     }, 2000); // 2000 milissegundos = 2 segundos
+
                 });
 
             } else {
