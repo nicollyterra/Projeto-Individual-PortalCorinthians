@@ -93,9 +93,41 @@ function enviar(req, res) {
 }
 
 
+function votar(req, res) {
+    var voto_user = req.body.votoServer;
+    var fkUsuario = req.params.id
+    usuarioModel.votar(voto_user, fkUsuario)
+        .then((resultado) => res.status(200).json(resultado))
+        .catch((erro) => {
+            console.log("Erro no envio:", erro);
+            res.status(500).json(erro.sqlMessage || erro.message);
+        });
+        
+} 
+
+function buscarVotoId(req, res) {
+    var idUsuario = req.params.id;
+
+    usuarioModel.buscarVotoId(idUsuario)
+        .then(resultado => {
+            if (resultado.length > 0) {
+                res.json(resultado[0]);
+            } else {
+                res.status(404).send("Usuário não encontrado");
+            }
+        })
+        .catch(erro => {
+            console.log("Erro ao buscar usuário por ID:", erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+
 module.exports = {
     autenticar,
     cadastrar,
     buscarPorId, 
-    enviar
+    enviar, 
+    votar,
+    buscarVotoId
 }

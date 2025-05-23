@@ -305,19 +305,19 @@
 
                   
                   <select id="escolha_jog" class="select">
-                    <option value="">Clique aqui</option>
-                    <option value="hugo_souza">Hugo Souza</option>
-                    <option value="memphis">Memphis Depay</option>
-                    <option value="ya9">Yuri Alberto</option>
-                    <option value="garro">Rodrigo Garro</option>
-                    <option value="romero">Angel Romero</option>
-                    <option value="bidon">Breno Bidon</option>
-                    <option value="carrilo">André Carrillo</option>
-                    <option value="magno">Talles Magno</option>
-                    <option value="coronado">Igor Coronado</option>
-                    <option value="martinez">José Martinez</option>
-                    <option value="matheuzinho">Matheuzinho</option>
-                    <option value="anglieri">Fabrizio Angileri</option>
+                    <option value="#">Clique aqui</option>
+                    <option value="1">Hugo Souza</option>
+                    <option value="2">Memphis Depay</option>
+                    <option value="3">Yuri Alberto</option>
+                    <option value="4">Rodrigo Garro</option>
+                    <option value="5">Angel Romero</option>
+                    <option value="6">Breno Bidon</option>
+                    <option value="7">André Carrillo</option>
+                    <option value="8">Talles Magno</option>
+                    <option value="9">Igor Coronado</option>
+                    <option value="10">José Martinez</option>
+                    <option value="11">Matheuzinho</option>
+                    <option value="12">Fabrizio Angileri</option>
                   </select>
                   
                 </div>
@@ -722,76 +722,76 @@
 </html>
 
 <script>
-  // Vetor de jogadores em formato JSON
+  // vetor de jogadores em formato JSON
   const jogadores = [
     {
-      id: "hugo_souza",
+      id: 1,
       nome: "Hugo Souza",
       posicao: "Goleiro",
       imagem: "hugo-souza.png"
     },
     {
-      id: "memphis",
+      id: 2,
       nome: "Memphis Depay",
       posicao: "Atacante",
       imagem: "memphis.png"
     },
     {
-      id: "ya9",
+      id: 3,
       nome: "Yuri Alberto",
       posicao: "Atacante",
       imagem: "yuri.png"
     },
     {
-      id: "garro",
+      id: 4,
       nome: "Rodrigo Garro",
       posicao: "Meia",
       imagem: "garro.png"
     },
     {
-      id: "romero",
+      id: 5,
       nome: "Angel Romero",
       posicao: "Atacante",
       imagem: "romero.png"
     },
     {
-      id: "bidon",
+      id: 6,
       nome: "Breno Bidon",
       posicao: "Meio-campo",
       imagem: "bidon.png"
     },
     {
-      id: "carrilo",
+      id: 7,
       nome: "André Carrillo",
       posicao: "Meia",
       imagem: "Carrilo.png"
     },
     {
-      id: "magno",
+      id: 8,
       nome: "Talles Magno",
       posicao: "Atacante",
       imagem: "magno.png"
     },
     {
-      id: "coronado",
+      id: 9,
       nome: "Igor Coronado",
       posicao: "Meia",
       imagem: "coronado.png"
     },
     {
-      id: "martinez",
+      id: 10,
       nome: "José Martínez",
       posicao: "Zagueiro",
       imagem: "martinez.png"
     },
     {
-      id: "matheuzinho",
+      id: 11,
       nome: "Matheuzinho",
       posicao: "Lateral-direito",
       imagem: "matheuzinho.png"
     },
     {
-      id: "anglieri",
+      id: 12,
       nome: "Fabrizio Angileri",
       posicao: "Lateral-esquerdo",
       imagem: "angileri.png"
@@ -807,12 +807,12 @@
   // Atualiza as informações quando seleciona um jogador
   select.addEventListener("change", () => {
     const idSelecionado = select.value;
-    const jogador = jogadores.find(j => j.id === idSelecionado);
+    const jogador = jogadores.find(j => j.id == idSelecionado);
 
      if (jogador) {
     nomeSpan.textContent = jogador.nome;
     posicaoSpan.textContent = jogador.posicao;
-   fotoDiv.style.backgroundImage = `url('/imagens/jogadoresMasc/${jogador.imagem}')`;
+    fotoDiv.style.backgroundImage = `url('/imagens/jogadoresMasc/${jogador.imagem}')`;
     fotoDiv.style.backgroundSize = "cover";
     fotoDiv.style.backgroundPosition = "center";
     fotoDiv.style.border = "2px solid #131313";
@@ -823,4 +823,39 @@
     fotoDiv.style.backgroundColor = "#8a7745";
   }
   });
+
+  function votar() {
+
+    const idUsuario = sessionStorage.ID_USUARIO
+    var voto_user = escolha_jog.value;
+
+    if (voto_user == '#') {
+      alert ("Selecione uma opção válida para votar.")
+    } else {
+      fetch(`/usuarios/votar/${idUsuario}`, {
+      method: "POST",
+      headers: {
+        "Content-type":"application/json"
+      },
+      body:  JSON.stringify({
+                votoServer: Number(voto_user) 
+            })
+    })
+      .then(async res => {
+        if (res.ok) {
+          alert("Seu voto foi enviado com sucesso");
+        } else {
+          var msg_erro = await res.json()
+          if (msg_erro) {
+            alert ("Você não pode votar mais de uma vez na mesma partida.")
+          }
+        }
+      })
+      .catch(err => {
+        console.error("Erro:", err);
+      });
+    }
+    
+    
+  }
 </script>

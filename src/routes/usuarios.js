@@ -33,4 +33,12 @@ router.post("/enviar/:id", upload.single('img_relato'), function (req, res) {
 });
 
 
+router.post("/votar/:id", function (req, res) {
+    usuarioController.votar(req, res);
+});
+
+router.get("/buscarVotoId/:id", function (req, res) {
+    usuarioController.buscarVotoId(req, res);
+});
+
 module.exports = router;

@@ -35,9 +35,29 @@ function enviar(relato, img_relato, fkUsuario ) {
     return database.executar(instrucao);
 }
 
+function votar(fkJogador, fkUsuario) {
+    var instrucao = `
+        INSERT INTO votos (data_voto, fkUsuario_voto, fkJogador_voto)
+        VALUES (current_timestamp(), ${fkUsuario}, ${fkJogador});
+    `;
+    return database.executar(instrucao);
+}
+
+function buscarVotoId (idUsuario) {
+    var instrucaoSql = `
+    SELECT nome, email, imagem_usuario 
+        FROM usuario 
+        WHERE idUsuario = ${idUsuario};
+    `;
+    return database.executar(instrucaoSql);
+}
+
+
 module.exports = {
     autenticar, 
     cadastrar,
     buscarPorId,
-    enviar
+    enviar, 
+    votar, 
+    buscarVotoId
 };

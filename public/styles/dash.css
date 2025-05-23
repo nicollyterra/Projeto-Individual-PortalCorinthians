@@ -171,3 +171,36 @@ ul {
     align-items: center;
     font-family: 'Poppins', sans-serif;
 }
+
+/* css da página de solicitações de relatos */
+
+.cards-soli {
+    width: 90%;
+    height: 100%;
+    justify-self: center;
+    background-color: blueviolet;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.card {
+    width: 80%;
+    height: 30%;
+    background-color: #e8e800;
+    display: flex;
+    flex-direction: row;
+}
+
+.img-relato {
+    width: 35%;
+    height: 100%;
+    background-color: rgb(192, 38, 141);
+}
+
+.desc-relato {
+    width: 65%;
+    height: 100%;
+    background-color: chocolate;
+}
