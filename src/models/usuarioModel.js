@@ -29,8 +29,8 @@ function buscarPorId(idUsuario) {
 
 function enviar(relato, img_relato, fkUsuario ) {
     var instrucao = `
-        INSERT INTO post (relato, img_relato, fkUsuario)
-        VALUES ('${relato}', '${img_relato}', '${fkUsuario}');
+        INSERT INTO post (relato, img_relato, fkUsuario, statusPost)
+        VALUES ('${relato}', '${img_relato}', '${fkUsuario}', 0);
     `;
     return database.executar(instrucao);
 }
@@ -52,6 +52,20 @@ function buscarVotoId (idUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function buscarSolici (idUsuario) {
+    var instrucaoSql = `
+    SELECT p.idpost,
+          p.relato,
+          p.fkUsuario, 
+          p.img_relato, 
+          p.statusPost,
+          u.nome FROM post as p
+          JOIN usuario as u
+          ON p.fkUsuario = u.idUsuario
+          WHERE statusPost = 0;`;
+    return database.executar(instrucaoSql);
+}
+
 
 module.exports = {
     autenticar, 
@@ -59,5 +73,6 @@ module.exports = {
     buscarPorId,
     enviar, 
     votar, 
-    buscarVotoId
+    buscarVotoId, 
+    buscarSolici
 };
