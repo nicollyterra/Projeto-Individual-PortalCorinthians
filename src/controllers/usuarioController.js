@@ -122,6 +122,23 @@ function buscarVotoId(req, res) {
         });
 }
 
+function buscarSolici(req, res) {
+    var idUsuario = req.params.id;
+
+    usuarioModel.buscarSolici(idUsuario)
+        .then(resultado => {
+            if (resultado.length > 0) {
+                res.json(resultado);
+            } else {
+                res.status(404).send("Ainda não há relatos enviados...");
+            }
+        })
+        .catch(erro => {
+            console.log("Erro ao buscar usuário por ID:", erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
 
 module.exports = {
     autenticar,
@@ -129,5 +146,6 @@ module.exports = {
     buscarPorId, 
     enviar, 
     votar,
-    buscarVotoId
+    buscarVotoId, 
+    buscarSolici
 }

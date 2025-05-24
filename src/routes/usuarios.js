@@ -41,4 +41,8 @@ router.get("/buscarVotoId/:id", function (req, res) {
     usuarioController.buscarVotoId(req, res);
 });
 
+router.get("/buscarSolici", function (req, res) {
+    usuarioController.buscarSolici(req, res);
+});
+
 module.exports = router;

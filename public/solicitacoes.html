@@ -15,7 +15,7 @@
     <title>Métricas Portal Corinthians</title>
 </head>
 
-<body>
+<body onload="buscarPost()">
  <div class="menulateral">
     <img src="imagens/logo-navbar.svg" style="height: 60px;">
 
@@ -58,24 +58,29 @@
     </div>
   </div>
 
+
+
   <div class="geral">
     <div class="titulo"><p>Solicitações de relatos (Loucos por ti)</p></div>
     <hr>
 
-    <div class="cards-soli">
-      <div class="card">
-        <div class="img-relato"></div>
-        <div class="desc-relato"></div>
-      </div>
+    <div class="cards-soli" id="cards_soli">
     </div>
+
   </div>
 
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="./js/solicitaoces.js"></script>
 </body>
 </html>
 
-<script> const ctx = document.getElementById('myChart');
+<script> 
+
+
+  
+
+    const ctx = document.getElementById('myChart');
 
     new Chart(ctx, {
         type: 'bar',
