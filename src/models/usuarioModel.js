@@ -66,6 +66,18 @@ function buscarSolici (idUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function aceitar(idPost, statusPost) {
+    console.log("entrei no model do usuário, e executei a funcção aceitar", idPost, statusPost)
+    var instrucaoSql = `
+    UPDATE post SET statusPost = ${statusPost} WHERE idPost = ${idPost}` 
+    return database.executar(instrucaoSql); 
+}
+
+function postsAceitos() {
+    var instrucaoSql = `
+    SELECT * FROM post WHERE statusPost = 1`
+    return database.executar(instrucaoSql);
+}
 
 module.exports = {
     autenticar, 
@@ -74,5 +86,7 @@ module.exports = {
     enviar, 
     votar, 
     buscarVotoId, 
-    buscarSolici
+    buscarSolici, 
+    aceitar,
+    postsAceitos
 };

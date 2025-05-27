@@ -139,6 +139,26 @@ function buscarSolici(req, res) {
         });
 }
 
+function aceitar(req, res) {
+    let idPost = req.body.idPostagem ;
+    let statusPost = req.body.statusPostagem ; 
+
+    usuarioModel.aceitar(idPost, statusPost)
+    .then (resultado => {
+         if (resultado.affectedRows == 1) {
+            res.status(200).send("Ação confirmada.")
+         }
+    })
+}
+
+function postsAceitos(req, res) {
+    usuarioModel.postsAceitos()
+    .then (async resultado => {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado)
+        }
+    })
+}
 
 module.exports = {
     autenticar,
@@ -147,5 +167,7 @@ module.exports = {
     enviar, 
     votar,
     buscarVotoId, 
-    buscarSolici
+    buscarSolici, 
+    aceitar, 
+    postsAceitos
 }

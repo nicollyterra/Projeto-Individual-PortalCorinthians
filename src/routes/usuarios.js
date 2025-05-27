@@ -45,4 +45,12 @@ router.get("/buscarSolici", function (req, res) {
     usuarioController.buscarSolici(req, res);
 });
 
+
+router.post("/aceitar", function (req, res) {
+    usuarioController.aceitar(req, res);
+});
+
+router.get("/postsAceitos", function (req, res) {
+     usuarioController.postsAceitos(req, res);
+})
 module.exports = router;
