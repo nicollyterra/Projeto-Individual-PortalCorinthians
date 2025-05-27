@@ -122,6 +122,8 @@ function buscarVotoId(req, res) {
         });
 }
 
+
+
 function buscarSolici(req, res) {
     var idUsuario = req.params.id;
 

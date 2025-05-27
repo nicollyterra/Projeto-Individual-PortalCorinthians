@@ -46,6 +46,8 @@ router.get("/buscarSolici", function (req, res) {
 });
 
 
+
+
 router.post("/aceitar", function (req, res) {
     usuarioController.aceitar(req, res);
 });

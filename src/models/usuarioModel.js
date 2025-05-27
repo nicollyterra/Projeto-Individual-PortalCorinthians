@@ -31,6 +31,8 @@ function enviar(relato, img_relato, fkUsuario ) {
     var instrucao = `
         INSERT INTO post (relato, img_relato, fkUsuario, statusPost)
         VALUES ('${relato}', '${img_relato}', '${fkUsuario}', 0);
+        INSERT INTO post (relato, img_relato, fkUsuario, statusPost)
+        VALUES ('${relato}', '${img_relato}', '${fkUsuario}', 0);
     `;
     return database.executar(instrucao);
 }
@@ -51,6 +53,8 @@ function buscarVotoId (idUsuario) {
     `;
     return database.executar(instrucaoSql);
 }
+
+
 
 function buscarSolici (idUsuario) {
     var instrucaoSql = `
