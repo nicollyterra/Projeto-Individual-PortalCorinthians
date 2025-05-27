@@ -234,3 +234,11 @@ ul {
     color: #fffff6;
     border: #fffff6 2px solid;
 }
+
+.numkpi {
+    color: #fffff6;
+    align-self: center;
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}

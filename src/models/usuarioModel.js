@@ -27,10 +27,8 @@ function buscarPorId(idUsuario) {
     return database.executar(instrucaoSql);
 }
 
-function enviar(relato, img_relato, fkUsuario ) {
+function enviar(relato, img_relato, fkUsuario) {
     var instrucao = `
-        INSERT INTO post (relato, img_relato, fkUsuario, statusPost)
-        VALUES ('${relato}', '${img_relato}', '${fkUsuario}', 0);
         INSERT INTO post (relato, img_relato, fkUsuario, statusPost)
         VALUES ('${relato}', '${img_relato}', '${fkUsuario}', 0);
     `;
@@ -83,6 +81,18 @@ function postsAceitos() {
     return database.executar(instrucaoSql);
 }
 
+function kpiVotos() {
+    var instrucaoSql = `
+   SELECT COUNT(idVoto) as votos FROM votos`
+    return database.executar(instrucaoSql);
+}
+
+function kpiUsers() {
+    var instrucaoSql = `
+   SELECT COUNT(idUsuario) as usuarios FROM usuario`
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar, 
     cadastrar,
@@ -92,5 +102,7 @@ module.exports = {
     buscarVotoId, 
     buscarSolici, 
     aceitar,
-    postsAceitos
+    postsAceitos, 
+    kpiVotos, 
+    kpiUsers
 };

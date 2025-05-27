@@ -12,10 +12,11 @@
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400..900&family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Special+Gothic+Expanded+One&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles/dash.css">
+    <script src="./js/solicitaoces.js"></script>
     <title>Métricas Portal Corinthians</title>
 </head>
 
-<body>
+<body onload="iniciarPagnia()">
  <div class="menulateral">
     <img src="imagens/logo-navbar.svg" style="height: 60px;">
 
@@ -64,9 +65,11 @@
     <div class="indicadores">
         <div class="kpi">
            <div class="desc-kpi"><p>Usuários cadastrados</p></div> 
+           <div class="numkpi" id="num-kpi-users"></div>
         </div>
         <div class="kpi">
             <div class="desc-kpi"><p>Usuários ativos (votações)</p></div>
+            <div class="numkpi" id="num-kpi"></div>
         </div>
         <div class="kpi">
             <div class="desc-kpi"><p>Jogador mais votado</p></div>

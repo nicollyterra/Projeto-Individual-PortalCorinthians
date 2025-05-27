@@ -638,6 +638,7 @@ html {
     0px 1px 14px 0px rgba(0, 0, 0, 0.12);
   overflow: hidden;
   background-size: cover;
+  height: 400px;
 }
 
 .info {

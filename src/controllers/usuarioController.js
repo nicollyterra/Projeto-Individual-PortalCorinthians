@@ -162,6 +162,27 @@ function postsAceitos(req, res) {
     })
 }
 
+function kpiVotos(req, res) {
+    usuarioModel.kpiVotos()
+    .then(async resultado => {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado)
+            console.log(resultado[0].votos)
+        }
+    })
+}
+
+
+function kpiUsers(req, res) {
+    usuarioModel.kpiUsers()
+    .then(async resultado => {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado)
+            console.log('retorno dos dados', resultado[0].usuarios)
+        }
+    })
+}
+
 module.exports = {
     autenticar,
     cadastrar,
@@ -171,5 +192,7 @@ module.exports = {
     buscarVotoId, 
     buscarSolici, 
     aceitar, 
-    postsAceitos
+    postsAceitos,
+    kpiVotos, 
+    kpiUsers
 }
