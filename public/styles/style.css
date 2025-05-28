@@ -639,6 +639,7 @@ html {
   overflow: hidden;
   background-size: cover;
   height: 400px;
+  z-index: -1 ;
 }
 
 .info {

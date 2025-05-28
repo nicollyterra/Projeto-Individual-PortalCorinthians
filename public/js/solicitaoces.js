@@ -3,7 +3,7 @@ function buscarPost() {
         method: "GET"
     }).then(async resposta => {
         var usersNegados = await resposta.json()
-
+        console.log(usersNegados);
         var txt_card = ``
         for (let i = usersNegados.length - 1; i >= 0; i--) {
             txt_card += `
@@ -45,11 +45,11 @@ function postsAceitos() {
         console.log(postsGerais)
 
 
-        for (let i = 0; i < postsGerais.length; i++) {
+        for (let i = postsGerais.length - 1; i >= 0 ; i--) {
 
             carrossel.innerHTML += `
              <div class="swiper-slide">
-              <div class='card-torcida style="${postsGerais[i].img_relato}">
+              <div class='card-torcida'  style="background-image: url (${postsGerais[i].img_relato});">
                 <div class='info'>
                   <h1 class='title'></h1>
                   <p class='description'>${postsGerais[i].relato}<span style="color: #847248;">${postsGerais[i].nome}</span></p>

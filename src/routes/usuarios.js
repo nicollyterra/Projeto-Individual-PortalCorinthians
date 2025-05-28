@@ -60,4 +60,8 @@ router.get("/kpiVotos", function (req, res) {
 router.get("/kpiUsers", function (req, res) {
      usuarioController.kpiUsers(req, res); 
 })
+
+router.get("/usuarios", function (req, res) {
+     usuarioController.usuarios(req, res); 
+})
 module.exports = router;

@@ -183,6 +183,17 @@ function kpiUsers(req, res) {
     })
 }
 
+function usuarios(req, res) {
+    
+    usuarioModel.usuarios()
+    .then(async resultado => {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado)
+            console.log('retorno dos users', resultado[0].usuarios) 
+        }
+    })
+}
+
 module.exports = {
     autenticar,
     cadastrar,
@@ -194,5 +205,6 @@ module.exports = {
     aceitar, 
     postsAceitos,
     kpiVotos, 
-    kpiUsers
+    kpiUsers, 
+    usuarios
 }

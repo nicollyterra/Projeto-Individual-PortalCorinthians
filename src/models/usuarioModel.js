@@ -77,7 +77,15 @@ function aceitar(idPost, statusPost) {
 
 function postsAceitos() {
     var instrucaoSql = `
-    SELECT * FROM post WHERE statusPost = 1`
+    SELECT p.idpost,
+          p.relato,
+          p.fkUsuario, 
+          p.img_relato, 
+          p.statusPost,
+          u.nome FROM post as p
+          JOIN usuario as u
+          ON p.fkUsuario = u.idUsuario
+          WHERE statusPost = 1;`
     return database.executar(instrucaoSql);
 }
 
@@ -93,6 +101,12 @@ function kpiUsers() {
     return database.executar(instrucaoSql);
 }
 
+function usuarios() {
+    var instrucaoSql = `
+    SELECT idUsuario, nome, email, date_format(dtNasc, '%d/%m/%Y') dtNasc FROM usuario`
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar, 
     cadastrar,
@@ -104,5 +118,6 @@ module.exports = {
     aceitar,
     postsAceitos, 
     kpiVotos, 
-    kpiUsers
+    kpiUsers, 
+    usuarios
 };
