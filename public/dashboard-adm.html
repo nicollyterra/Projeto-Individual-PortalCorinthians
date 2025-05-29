@@ -16,13 +16,12 @@
     <title>Métricas Portal Corinthians</title>
 </head>
 
-<body onload="iniciarPagnia()">
+<body onload="iniciarPagnia()" style="overflow: hidden;">
  <div class="menulateral">
     <img src="imagens/logo-navbar.svg" style="height: 60px;">
 
     <div class="imgcliente">
       <div class="fotouser">
-        <img src="assets/image/default-avatar-icon-of-social-media-user-vector.jpg">
       </div>
       <div class="nomeuser">
         <h2>Thiago Prates</h2>
@@ -97,62 +96,66 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
+<script>
 
-<script> const ctx = document.getElementById('myChart');
+fetch('/usuarios/chartJogadores').then(response => response.json()).then(data => {
 
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['A'],
-            datasets: [
-                {
-                    label: 'Dataset 1',
-                    data: [1, 2, 3],
-                    borderColor: '#770303',
-                    backgroundColor: '#770303',
-                },
-                {
-                    label: 'Dataset 2',
-                    data: [2, 3, 4],
-                    borderColor: '#ffffa1',
-                    backgroundColor: '#ffffa1',
-                },
-
-                {
-                    label: 'Dataset 3',
-                    data: [2, 3, 4],
-                    borderColor: '#131313',
-                    backgroundColor: '#131313',
-                },
-
-                {
-                    label: 'Dataset 4',
-                    data: [2, 3, 4],
-                    borderColor: '#545454',
-                    backgroundColor: '#545454',
-                }
-
-            ]
-       } });
-       
-        const ctx2 = document.getElementById('myChart2');
-
-  new Chart(ctx2, {
-    type: 'line',
+  const ctx = document.getElementById('myChart');
+  
+  new Chart(ctx, {
+    type: 'bar',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-      }]
+        labels: data.nomes,
+        datasets: [
+            {
+                label: 'Quantidade de votos',
+                data: data.votos,
+                borderColor: '#770303',
+                backgroundColor: '#770303',
+            },
+        ]
     },
     options: {
-      scales: {
-        y: {
-          beginAtZero: true
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    stepSize: 1,
+                    precision: 0
+                }
+            }
         }
-      }
     }
+});
+  
+
+fetch('/usuarios/chartUsers').then(response => response.json()).then(data => {
+
+ const ctx2 = document.getElementById('myChart2');
+  
+  new Chart(ctx2, {
+      type: 'line',
+      data: {
+          labels: data.data_users,
+          datasets: [{
+              label: '# of Votes',
+              data: data.data_users,
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: false
+              }
+          }
+      }
   });
-       </script>
+})
+
+
+})
+
+
+ 
+</script>

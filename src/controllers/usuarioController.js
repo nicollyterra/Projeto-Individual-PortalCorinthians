@@ -18,7 +18,7 @@ function autenticar(req, res) {
 
                     if (resultadoAutenticar.length == 1) {
                         res.json(resultadoAutenticar)
-                        
+
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     }
@@ -79,7 +79,7 @@ function enviar(req, res) {
     // Nome do arquivo da imagem enviada
     var img_relato = req.file ? req.file.filename : null;
 
-    if (!relato|| !img_relato ) {
+    if (!relato || !img_relato) {
         return res.status(400).send("Preencha todos os campos obrigatórios!");
     }
 
@@ -89,7 +89,7 @@ function enviar(req, res) {
             console.log("Erro no envio:", erro);
             res.status(500).json(erro.sqlMessage || erro.message);
         });
-        
+
 }
 
 
@@ -102,8 +102,8 @@ function votar(req, res) {
             console.log("Erro no envio:", erro);
             res.status(500).json(erro.sqlMessage || erro.message);
         });
-        
-} 
+
+}
 
 function buscarVotoId(req, res) {
     var idUsuario = req.params.id;
@@ -142,92 +142,146 @@ function buscarSolici(req, res) {
 }
 
 function aceitar(req, res) {
-    let idPost = req.body.idPostagem ;
-    let statusPost = req.body.statusPostagem ; 
+    let idPost = req.body.idPostagem;
+    let statusPost = req.body.statusPostagem;
 
     usuarioModel.aceitar(idPost, statusPost)
-    .then (resultado => {
-         if (resultado.affectedRows == 1) {
-            res.status(200).send("Ação confirmada.")
-         }
-    })
+        .then(resultado => {
+            if (resultado.affectedRows == 1) {
+                res.status(200).send("Ação confirmada.")
+            }
+        })
 }
 
 function postsAceitos(req, res) {
     usuarioModel.postsAceitos()
-    .then (async resultado => {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado)
-        }
-    })
+        .then(async resultado => {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado)
+            }
+        })
 }
 
 function kpiVotos(req, res) {
     usuarioModel.kpiVotos()
-    .then(async resultado => {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado)
-            console.log(resultado[0].votos)
-        }
-    })
+        .then(async resultado => {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado)
+                console.log(resultado[0].votos)
+            }
+        })
 }
 
 
 function kpiUsers(req, res) {
     usuarioModel.kpiUsers()
-    .then(async resultado => {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado)
-            console.log('retorno dos dados', resultado[0].usuarios)
-        }
-    })
+        .then(async resultado => {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado)
+                console.log('retorno dos dados', resultado[0].usuarios)
+            }
+        })
 }
 
 function usuarios(req, res) {
-    
+
     usuarioModel.usuarios()
-    .then(async resultado => {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado)
-            console.log('retorno dos users', resultado[0].usuarios) 
-        }
-    })
+        .then(async resultado => {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado)
+                console.log('retorno dos users', resultado[0].usuarios)
+            }
+        })
 }
 
 function kpiJogMaisVot(req, res) {
-     usuarioModel.kpiJogMaisVot()
-    .then(async resultado => {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado)
-            console.log('retorno dos dados', resultado[0].nome)
-        }
-    })
+    usuarioModel.kpiJogMaisVot()
+        .then(async resultado => {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado)
+                console.log('retorno dos dados', resultado[0].nome)
+            }
+        })
 }
 
 function kpiJogMensVot(req, res) {
-     usuarioModel.kpiJogMensVot()
-    .then(async resultado => {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado)
-            console.log('retorno dos dados', resultado[0].nome)
-        }
-    })
+    usuarioModel.kpiJogMensVot()
+        .then(async resultado => {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado)
+                console.log('retorno dos dados', resultado[0].nome)
+            }
+        })
+}
+
+
+let vt_votos = []
+let vt_nomes = []
+
+function chartJogadores(req, res) {
+    usuarioModel.chartJogadores()
+        .then(async resultado => {
+
+            vt_votos = []
+            vt_nomes = []
+
+            for (let index = 0; index < resultado.length; index++) {
+                console.log('retorno dos dados', resultado[index].voto_count)
+                vt_votos.push(resultado[index].voto_count)
+                console.log(vt_votos)
+            }
+
+            for (let index = 0; index < resultado.length; index++) {
+                console.log('retorno dos dados', resultado[index].nome)
+                vt_nomes.push(resultado[index].nome)
+                console.log(vt_nomes)
+            }
+
+            res.json({
+                nomes: vt_nomes,
+                votos: vt_votos
+            })
+        })
+}
+
+let vt_dtCadastro = []
+
+function chartUsers(req, res) {
+    usuarioModel.chartUsers()
+        .then(async resultado => {
+
+            console.log("oieeeee", resultado[0])
+
+            vt_dtCadastro = []
+
+            for (let i = 0; i < resultado.length; i++) {
+                console.log('retorno dos dados', resultado[i].dt_cadastro)
+                vt_dtCadastro.push(resultado[i].dt_cadastro)
+                console.log(vt_dtCadastro)
+            }
+
+            res.json({
+                data_users: vt_dtCadastro
+            })
+        })
 }
 
 
 module.exports = {
     autenticar,
     cadastrar,
-    buscarPorId, 
-    enviar, 
+    buscarPorId,
+    enviar,
     votar,
-    buscarVotoId, 
-    buscarSolici, 
-    aceitar, 
+    buscarVotoId,
+    buscarSolici,
+    aceitar,
     postsAceitos,
-    kpiVotos, 
-    kpiUsers, 
-    usuarios, 
-    kpiJogMaisVot, 
-    kpiJogMensVot
+    kpiVotos,
+    kpiUsers,
+    usuarios,
+    kpiJogMaisVot,
+    kpiJogMensVot,
+    chartUsers,
+    chartJogadores
 }

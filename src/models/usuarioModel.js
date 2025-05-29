@@ -135,6 +135,26 @@ function kpiJogMensVot() {
     return database.executar(instrucaoSql);
 }
 
+function chartUsers() {
+    var instrucaoSql = `
+   select month(dt_cadastro) as dt_cadastro from usuario;`
+     return database.executar(instrucaoSql); 
+}
+
+function chartJogadores() {
+    var instrucaoSql = `
+     select j.nome, 
+		voto_count
+    from (select fkJogador_voto, 
+		count(*) as voto_count
+        from votos  
+        group by fkJogador_voto) as contagem 
+    join jogador as j on contagem.fkJogador_voto = j.idJogador
+    order by voto_count
+    limit 5;`
+    return database.executar(instrucaoSql); 
+}
+
 module.exports = {
     autenticar,
     cadastrar,
@@ -149,5 +169,7 @@ module.exports = {
     kpiUsers,
     usuarios,
     kpiJogMaisVot,
-    kpiJogMensVot
+    kpiJogMensVot, 
+    chartUsers, 
+    chartJogadores
 };

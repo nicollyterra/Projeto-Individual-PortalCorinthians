@@ -73,5 +73,13 @@ router.get("/kpiJogMensVot", function (req, res) {
      usuarioController.kpiJogMensVot(req, res); 
 })
 
+ router.get("/chartUsers", function (req, res) {
+     usuarioController.chartUsers(req, res); 
+ })
+
+router.get("/chartJogadores", function (req, res) {
+     usuarioController.chartJogadores(req, res); 
+})
+
 
 module.exports = router;

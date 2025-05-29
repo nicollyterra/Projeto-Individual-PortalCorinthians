@@ -11,10 +11,11 @@
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400..900&family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Special+Gothic+Expanded+One&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles/style-conta-user.css">
+     <script src="./js/solicitaoces.js"></script>
     <title>Minha conta</title>
 </head>
 
-<body>
+<body onload="iniciarEmConta()">
     <nav class="navbar">
         <div class="logo">
             <a href="index.html"><img src="imagens/logo-navbar.svg" alt="Logo Corinthians"></a>
@@ -67,7 +68,7 @@
         </div>
 
         <div class="propaganda-lpt">
-           <a href="loucos-por-ti.html"><img src="imagens/propaganda2.svg" alt=""></a> 
+            <a href="loucos-por-ti.html"><img src="imagens/propaganda2.svg" alt=""></a>
         </div>
 
 
@@ -85,15 +86,15 @@
                 <div class="kpis">
                     <div class="kpi">
                         <div class="desc-kpi">Total de votos</div>
-                        <div class="contadores"><span>500</span></div>
+                        <div class="numkpi" id="num-kpi" style="color: #fffff6;"></div>
                     </div>
                     <div class="kpi">
                         <div class="desc-kpi">Jogador mais votado</div>
-                        <div class="contadores"><span></span></div>
+                        <div class="kpi_max_jog" id="kpi_max_jog" style="color: #fffff6;"></div>
                     </div>
                     <div class="kpi">
                         <div class="desc-kpi">Jogador menos votado</div>
-                        <div class="contadores"></div>
+                        <div class="kpi_min_jog" id="kpi_min_jog" style="color: #fffff6;"></div>
                     </div>
                 </div>
 
@@ -139,38 +140,34 @@
 
     const ctx = document.getElementById('myChart');
 
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['A'],
-            datasets: [
-                {
-                    label: 'Dataset 1',
-                    data: [1, 2, 3],
-                    borderColor: '#770303',
-                    backgroundColor: '#770303',
-                },
-                {
-                    label: 'Dataset 2',
-                    data: [2, 3, 4],
-                    borderColor: '#ffffa1',
-                    backgroundColor: '#ffffa1',
-                },
+    fetch('/usuarios/chartJogadores').then(response => response.json()).then(data => {
 
-                {
-                    label: 'Dataset 3',
-                    data: [2, 3, 4],
-                    borderColor: '#131313',
-                    backgroundColor: '#131313',
-                },
+        const ctx = document.getElementById('myChart');
 
-                {
-                    label: 'Dataset 4',
-                    data: [2, 3, 4],
-                    borderColor: '#545454',
-                    backgroundColor: '#545454',
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: data.nomes,
+                datasets: [
+                    {
+                        label: 'Quantidade de votos',
+                        data: data.votos,
+                        borderColor: '#770303',
+                        backgroundColor: '#770303',
+                    },
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1,
+                            precision: 0
+                        }
+                    }
                 }
-
-            ]
-       } });
+            }
+        });
+    }); 
 </script>
