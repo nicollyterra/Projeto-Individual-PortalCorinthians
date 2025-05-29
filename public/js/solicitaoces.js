@@ -89,8 +89,33 @@ function kpiUsers() {
       })
 }
 
+function kpiJogMaisVot() {
+    fetch('/usuarios/kpiJogMaisVot', {
+        method:"GET"
+    }).then(res => res.json())
+      .then(function(resultado){
+        console.log('aaaaaa')
+        var kpiJog = document.getElementById('kpi_max_jog')
+        var maisVotos = resultado[0].nome
+        kpiJog.innerHTML = `<p>${maisVotos}<p>`
+      })
+}
+
+function kpiJogMensVot() {
+    fetch('/usuarios/kpiJogMensVot', {
+        method:"GET"
+    }).then(res => res.json())
+      .then(function(resultado){
+        console.log('vtnc')
+        var kpiJog = document.getElementById('kpi_min_jog')
+        var menosVotos = resultado[0].nome 
+        kpiJog.innerHTML = `<p>${menosVotos}<p>`
+      })
+}
 
 function iniciarPagnia(){
     kpiVotos();
     kpiUsers();
+    kpiJogMaisVot(); 
+    kpiJogMensVot(); 
 }

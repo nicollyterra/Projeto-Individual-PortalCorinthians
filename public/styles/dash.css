@@ -315,3 +315,11 @@ ul {
     margin-bottom: 3vh;
     background-color: #131313;
 }
+
+.kpi_min_jog, .kpi_max_jog {
+    color: #fffff6;
+    text-align: center;
+    font-size: larger;
+    font-family: 'Poppins';
+    font-weight: 600;
+}

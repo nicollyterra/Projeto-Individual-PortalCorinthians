@@ -1,13 +1,13 @@
 var database = require("../database/config")
 
- function autenticar(email, senha) {
+function autenticar(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucaoSql = `
          SELECT * FROM usuario WHERE email = '${email}' AND senha = '${senha}';
      `;
-     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-   return database.executar(instrucaoSql);
- }
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
 function cadastrar(nome, dtNasc, email, senha, imagem_usuario) {
@@ -43,7 +43,7 @@ function votar(fkJogador, fkUsuario) {
     return database.executar(instrucao);
 }
 
-function buscarVotoId (idUsuario) {
+function buscarVotoId(idUsuario) {
     var instrucaoSql = `
     SELECT nome, email, imagem_usuario 
         FROM usuario 
@@ -54,7 +54,7 @@ function buscarVotoId (idUsuario) {
 
 
 
-function buscarSolici (idUsuario) {
+function buscarSolici(idUsuario) {
     var instrucaoSql = `
     SELECT p.idpost,
           p.relato,
@@ -71,8 +71,8 @@ function buscarSolici (idUsuario) {
 function aceitar(idPost, statusPost) {
     console.log("entrei no model do usuário, e executei a funcção aceitar", idPost, statusPost)
     var instrucaoSql = `
-    UPDATE post SET statusPost = ${statusPost} WHERE idPost = ${idPost}` 
-    return database.executar(instrucaoSql); 
+    UPDATE post SET statusPost = ${statusPost} WHERE idPost = ${idPost}`
+    return database.executar(instrucaoSql);
 }
 
 function postsAceitos() {
@@ -107,17 +107,47 @@ function usuarios() {
     return database.executar(instrucaoSql);
 }
 
+function kpiJogMaisVot() {
+    var instrucaoSql = `
+    select j.nome, 
+		voto_count
+    from (select fkJogador_voto, 
+		count(*) as voto_count
+        from votos  
+        group by fkJogador_voto) as contagem 
+    join jogador as j on contagem.fkJogador_voto = j.idJogador
+    order by voto_count desc 
+    limit 1;`
+    return database.executar(instrucaoSql);
+}
+
+function kpiJogMensVot() {
+    var instrucaoSql = `
+    select j.nome, 
+		voto_count
+    from (select fkJogador_voto, 
+		count(*) as voto_count
+        from votos  
+        group by fkJogador_voto) as contagem 
+    join jogador as j on contagem.fkJogador_voto = j.idJogador
+    order by voto_count
+    limit 1;`
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
-    autenticar, 
+    autenticar,
     cadastrar,
     buscarPorId,
-    enviar, 
-    votar, 
-    buscarVotoId, 
-    buscarSolici, 
+    enviar,
+    votar,
+    buscarVotoId,
+    buscarSolici,
     aceitar,
-    postsAceitos, 
-    kpiVotos, 
-    kpiUsers, 
-    usuarios
+    postsAceitos,
+    kpiVotos,
+    kpiUsers,
+    usuarios,
+    kpiJogMaisVot,
+    kpiJogMensVot
 };

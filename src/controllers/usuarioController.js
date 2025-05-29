@@ -194,6 +194,27 @@ function usuarios(req, res) {
     })
 }
 
+function kpiJogMaisVot(req, res) {
+     usuarioModel.kpiJogMaisVot()
+    .then(async resultado => {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado)
+            console.log('retorno dos dados', resultado[0].nome)
+        }
+    })
+}
+
+function kpiJogMensVot(req, res) {
+     usuarioModel.kpiJogMensVot()
+    .then(async resultado => {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado)
+            console.log('retorno dos dados', resultado[0].nome)
+        }
+    })
+}
+
+
 module.exports = {
     autenticar,
     cadastrar,
@@ -206,5 +227,7 @@ module.exports = {
     postsAceitos,
     kpiVotos, 
     kpiUsers, 
-    usuarios
+    usuarios, 
+    kpiJogMaisVot, 
+    kpiJogMensVot
 }
