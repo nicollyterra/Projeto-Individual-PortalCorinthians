@@ -65,11 +65,25 @@
     const email = ipt_email.value;
     const senha = ipt_senha.value;
     const foto = document.getElementById('ipt_img_usuario');
+    const confirmarSenha = ipt_Conf_senha.value; 
 
     if (!nome || !dtNasc || !email || !senha) {
       alert("Preencha todos os campos!");
       return;
     }
+    else if  (!email.includes('@')) {
+      alert("Email inválido, por favor insira um formato válido")
+      return
+    }
+    else if (senha.length < 6) {
+      alert("Sua senha precisa ter mais de 6 caracteres")
+      return
+    }
+    else if (senha != confirmarSenha) {
+      alert ("As duas senhas não coincidem")
+      return
+    }
+
 
     const formData = new FormData();
     formData.append("nome", nome);
