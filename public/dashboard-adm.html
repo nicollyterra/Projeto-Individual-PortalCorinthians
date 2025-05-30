@@ -101,7 +101,6 @@
 fetch('/usuarios/chartJogadores').then(response => response.json()).then(data => {
 
   const ctx = document.getElementById('myChart');
-  
   new Chart(ctx, {
     type: 'bar',
     data: {
@@ -138,15 +137,20 @@ fetch('/usuarios/chartUsers').then(response => response.json()).then(data => {
       data: {
           labels: data.data_users,
           datasets: [{
-              label: '# of Votes',
-              data: data.data_users,
-              borderWidth: 1
+              label: 'Fluxo de Cadastros',
+              data: data.data_users_mes,
+              borderWidth: 1, 
+             borderColor: '#770303',
+             backgroundColor: '#770303',
           }]
       },
       options: {
           scales: {
               y: {
-                  beginAtZero: false
+                  beginAtZero: true, 
+                  ticks: {
+                    stepSize: 5, 
+                  }
               }
           }
       }

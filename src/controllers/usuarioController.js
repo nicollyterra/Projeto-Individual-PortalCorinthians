@@ -246,6 +246,23 @@ function chartJogadores(req, res) {
 
 let vt_dtCadastro = []
 
+const mesesPtBr = {
+    January: 'Janeiro',
+    February: 'Fevereiro',
+    March: 'Março',
+    April: 'Abril',
+    May: 'Maio',
+    June: 'Junho',
+    July: 'Julho',
+    August: 'Agosto',
+    September: 'Setembro',
+    October: 'Outubro',
+    November: 'Novembro',
+    December: 'Dezembro'
+};
+
+
+
 function chartUsers(req, res) {
     usuarioModel.chartUsers()
         .then(async resultado => {
@@ -253,15 +270,23 @@ function chartUsers(req, res) {
             console.log("oieeeee", resultado[0])
 
             vt_dtCadastro = []
+            vt_nomeMes = []
 
             for (let i = 0; i < resultado.length; i++) {
-                console.log('retorno dos dados', resultado[i].dt_cadastro)
-                vt_dtCadastro.push(resultado[i].dt_cadastro)
-                console.log(vt_dtCadastro)
+                const mesIngles = resultado[i].mes_extenso;
+                const mesPortugues = mesesPtBr[mesIngles];
+                vt_dtCadastro.push(mesPortugues || mesIngles); // fallback para o nome original
+            }
+
+            for (let i = 0; i < resultado.length; i++) {
+                console.log('retorno dos dados', resultado[i].total_usuarios)
+                vt_nomeMes.push(resultado[i].total_usuarios)
+                console.log(vt_nomeMes)
             }
 
             res.json({
-                data_users: vt_dtCadastro
+                data_users: vt_dtCadastro,
+                data_users_mes: vt_nomeMes
             })
         })
 }

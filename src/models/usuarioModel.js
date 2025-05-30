@@ -137,8 +137,18 @@ function kpiJogMensVot() {
 
 function chartUsers() {
     var instrucaoSql = `
-   select month(dt_cadastro) as dt_cadastro from usuario;`
-     return database.executar(instrucaoSql); 
+  SELECT
+     DATE_FORMAT(u.dt_cadastro, '%M') AS mes_extenso,
+     MONTH(u.dt_cadastro) AS num_mes,
+     COUNT(*) AS total_usuarios
+  FROM (
+     SELECT DISTINCT DATE_FORMAT(dt_cadastro, '%Y-%m') AS mes
+     FROM usuario
+) AS meses_distintos
+  JOIN usuario u ON DATE_FORMAT(u.dt_cadastro, '%Y-%m') = meses_distintos.mes
+  GROUP BY mes_extenso, num_mes
+  ORDER BY num_mes; `
+    return database.executar(instrucaoSql);
 }
 
 function chartJogadores() {
@@ -152,7 +162,7 @@ function chartJogadores() {
     join jogador as j on contagem.fkJogador_voto = j.idJogador
     order by voto_count
     limit 5;`
-    return database.executar(instrucaoSql); 
+    return database.executar(instrucaoSql);
 }
 
 module.exports = {
@@ -169,7 +179,7 @@ module.exports = {
     kpiUsers,
     usuarios,
     kpiJogMaisVot,
-    kpiJogMensVot, 
-    chartUsers, 
+    kpiJogMensVot,
+    chartUsers,
     chartJogadores
 };

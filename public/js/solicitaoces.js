@@ -49,7 +49,7 @@ function postsAceitos() {
 
       carrossel.innerHTML += `
              <div class="swiper-slide">
-              <div class='card-torcida'  style="background-image: url (${postsGerais[i].img_relato});">
+              <div class='card-torcida'  style="background-image: url('./uploads/${postsGerais[i].img_relato}');">
                 <div class='info'>
                   <h1 class='title'></h1>
                   <p class='description'>${postsGerais[i].relato}<span style="color: #847248;">${postsGerais[i].nome}</span></p>
@@ -123,8 +123,6 @@ function chartUsers() {
     .then(function (resultado) {
 
       console.log('foi!')
-
-      // var menosVotos = resultado[0].votos
 
     })
 }
