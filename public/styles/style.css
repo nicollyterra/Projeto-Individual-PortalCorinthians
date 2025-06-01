@@ -393,40 +393,76 @@ html {
 
 #historia {
   width: 100%;
-  background-color: #fffff6;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 10%;
+  margin-top: 7%;
 }
 
 .containers-historia {
-  width: 90%;
-  height: 500px;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  height: 600px;
   justify-content: space-around;
-
   align-items: center;
+
+} 
+
+.textos{
+  width: 45%;
+  height: 100%;
+}
+.titulo {
+  width: 100%;
+  font-size: 80px ;
+  height: 18%;
+  text-align: center;
+  align-items: end;
+  margin-top: 5vh;
+}
+.imagem-fund {
+  width: 55%;
+  height: 100%;
+   clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
+}
+
+.imagem-fund img {
+  height: 100%;
 
 }
 
+.link-historia {
+  width: 100%;
+  height: 10%;
+}
+
+.link-historia p {
+  font-size: 30px;
+  padding-left: 5vh;
+    transition: transform 0.5s ease;
+}
+
+.link-historia p:hover {
+ transform: scale(1.1);
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.314);
+}
+
+.link-historia a {
+  text-decoration: none;
+  color: #847248;
+}
+
 .introducao {
-  width: 90%;
+  width: 80%;
   height: 20%;
   text-align: center;
   font-size: 50px;
   margin-bottom: 7vh;
-}
-
-.introducao p {
-  font-size: 100px;
-  line-height: 1;
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.574);
+  color: #fffff6;
 }
 
 .img-hist {
-  width: 90%;
+  width: 80%;
   height: 80%;
   display: flex;
   flex-direction: row;
@@ -434,14 +470,23 @@ html {
 
 
 .text-fund {
-  width: 50%;
-  height: 100%;
+  width: 100%;
+  height: 50%;
+  display: flex;
+align-items: center;
+justify-content: center;
+  color: #131313;
 }
 
 .text-fund p {
-  font-size: 30px;
+  font-size: 27px;
   text-justify: distribute-all-lines;
+  justify-self: center;
+  padding: 5vh;
+
 }
+
+
 
 .text-fund a {
   text-align: end;
@@ -452,21 +497,9 @@ html {
 }
 
 
-
-.text-fund h1 {
-  transition: transform 0.5s ease;
-}
-
-
-.text-fund h1:hover {
-  transform: scale(1.1);
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.314);
-}
-
-
 .img-fund {
   width: 50%;
-  height: 100%;
+  height: 90%;
 }
 
 
@@ -499,7 +532,7 @@ html {
 
 .torcida {
   height: 1200px;
-  margin-top: 15%;
+  margin-top: 10%;
   width: 100%;
   display: flex;
   flex-direction: column;
