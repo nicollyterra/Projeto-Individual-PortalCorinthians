@@ -10,6 +10,8 @@
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400..900&family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Special+Gothic+Expanded+One&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="icon" type="image/png" href="./imagens/logo-do-corinthians-4096.png">
+
   <script src="js/sessions.js"></script>
   <script src="js/solicitaoces.js"></script>
   <title>Portal Corinthians</title>
@@ -20,7 +22,7 @@
 
   <!-- navbar e inicio  -->
 
-  <header class="hero">
+  <header class="hero fade-section">
     <nav class="navbar">
       <div class="logo">
         <img src="imagens/logo-navbar.svg" alt="Logo Corinthians">
@@ -45,7 +47,7 @@
 
   <!-- parte de noticias -->
 
-  <section id="news">
+  <section id="news"  class="fade-section">
 
     <div class="banner-news">
       <h1>Últimas Notícias </h1>
@@ -173,7 +175,7 @@
 
   <!-- parte de jogos  -->
 
-  <section class="jogos" id="jogos">
+  <section class="jogos fade-section" id="jogos">
     <div class="jogos">
 
       <div class="banner-jogos">
@@ -271,7 +273,7 @@
   </section>
 
   <!-- votação de jogadores -->
-  <div class="sessaonsei">
+  <div class="sessaonsei fade-section">
     <div class="votacao">
 
       <!-- MODAAAAL DE JOGADOR -->
@@ -359,7 +361,7 @@
 
 
 
-    <section class="hero-section">
+    <section class="hero-section fade-section">
       <div class="card-grid">
         <a class="card" href="./elencoFemino.html">
           <div class="card__background"
@@ -384,7 +386,7 @@
 
   <!-- história do time  -->
 
-  <section id="historia">
+  <section id="historia"  class="fade-section">
 
     <div class="containers-historia">
     <div class="textos">
@@ -411,36 +413,11 @@
       <img src="./imagens/fundadores.svg" alt="">
     </div>
 
-      <!-- <div class="img-hist">
-        <div class="text-fund">
-          
-          <p>Criado por operários, o Corinthians
-            construiu um império gigantesco e hoje é o
-            maior clube do Brasil, símbolo de garra,
-            paixão e resistência. Sua história
-            transcende o futebol, representando a
-            força do povo e a alma de uma nação.
-            Cada título, cada gol, cada lágrima da Fiel
-            representa mais do que vitórias:
-            são capítulos de uma jornada marcada pela
-            superação <br> e pelo amor incondicional.</p>
-
-          <br><br>
-          <h1 style="margin-top: 6vh;"><a href="historia.html">Conheça a história do time do povo</a></h1>
-
-        </div>
-        <div class="img-fund">
-
-          <img src="imagens/fundadores.svg" alt="" style="height: 100%;">
-        </div>
-
-      </div>
-    </div> -->
   </section>
 
   <!-- homenagem a torcida -->
 
-  <section id="torcida" class="torcida">
+  <section id="torcida" class="torcida fade-section">
 
     <div class="geraltorcida">
 
@@ -459,11 +436,11 @@
         </p>
       </div>
 
-      <div class="titulo-car-torcida">
+      <div class="titulo-car-torcida fade-section">
         <h1>Conheça alguns apaixonados pelo timão dessa semana </h1>
       </div>
 
-      <div class="carrossel-torcida">
+      <div class="carrossel-torcida fade-section">
         <div class="swiper torcida-swiper">
           <div class="swiper-wrapper" id="carrossel">
             <!--     
@@ -555,7 +532,7 @@
 
   <!-- sessão torcidas organizadas -->
 
-  <section class="to">
+  <section class="to fade-section"  >
 
     <div class="geral-organizadas">
       <div class="titulo-to">
@@ -609,7 +586,7 @@
 
   <!-- sessão de titulos -->
 
-  <section class="titulos">
+  <section class="titulos fade-section" >
 
     <div class="titulos-geral">
       <div class="titulo-campeao">
@@ -624,7 +601,7 @@
 
   <!-- sessao de Modalidades -->
 
-  <section class="modalidades" id="modalidades">
+  <section class="modalidades fade-section" id="modalidades">
 
     <div class="geral-modalidades">
 
@@ -682,7 +659,7 @@
 
   </section>
 
-  <section class="footer">
+  <section class="footer fade-section">
 
     <div class="infos-footer">
 
@@ -779,6 +756,16 @@
 </html>
 
 <script>
+
+    const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in');
+      }
+    });
+  });
+
+  document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
   // vetor de jogadores em formato JSON
   const jogadores = [
     {
