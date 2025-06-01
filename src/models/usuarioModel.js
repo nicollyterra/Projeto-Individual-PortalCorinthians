@@ -165,6 +165,12 @@ function chartJogadores() {
     return database.executar(instrucaoSql);
 }
 
+function deleteUser(idUsuario) {
+    var instrucaoSql = `
+    DELETE FROM usuario WHERE idUsuario = ${idUsuario};`
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
     cadastrar,
@@ -181,5 +187,6 @@ module.exports = {
     kpiJogMaisVot,
     kpiJogMensVot,
     chartUsers,
-    chartJogadores
+    chartJogadores, 
+    deleteUser
 };

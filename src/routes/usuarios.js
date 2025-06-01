@@ -81,5 +81,10 @@ router.get("/chartJogadores", function (req, res) {
      usuarioController.chartJogadores(req, res); 
 })
 
+router.post("/deleteUser", function (req, res) {
+     usuarioController.deleteUser(req, res); 
+})
+
+
 
 module.exports = router;

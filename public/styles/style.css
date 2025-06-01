@@ -108,7 +108,7 @@ html {
 }
 
 .botao-login:hover {
-  background-color: #847248;
+  background-color: lch(48.77% 25.84 88.05);
   color: #fffff6;
 }
 
@@ -174,7 +174,7 @@ html {
   justify-content: center;
 }
 
-.card {
+.card-news {
   width: 400px;
   height: 240px;
   background: #fffff6;
@@ -185,7 +185,7 @@ html {
   transition: transform 0.3s ease;
 }
 
-.card:hover {
+.card-news:hover {
   transform: translateY(-5px);
 }
 
@@ -389,60 +389,6 @@ html {
   color: #131313;
   background-color: #847248;
   clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
-}
-
-.elenco {
-
-  height: 350px;
-  width: 100%;
-  display: flex;
-  background-color: #fffff6;
-  justify-content: space-evenly;
-  margin-bottom: 10vh;
-}
-
-.elencoMasc {
-  background-color: #131313;
-  border-radius: 20px;
-  height: 85%;
-  width: 40%;
-  border-radius: 10px;
-
-  transition: transform 0.3s ease;
-}
-
-
-.elencoMasc p {
-  text-align: center;
-  justify-self: center;
-  color: #fffff6;
-  font-size: 60px;
-  margin-top: -10vh;
-}
-
-.elencoFem p {
-  text-align: center;
-  justify-self: center;
-  color: #fffff6;
-  font-size: 60px;
-  margin-top: -10vh;
-}
-
-.elencoFem {
-  background-color: #131313;
-  background-image: url(/imagens/elenco-fem.png);
-  background-size: cover;
-  height: 85%;
-  width: 40%;
-  border-radius: 10px;
-
-  transition: transform 0.3s ease;
-}
-
-.elencoFem:hover,
-.elencoMasc:hover {
-  transform: translateY(-5px);
-  box-shadow: rgba(63, 63, 63, 0.699) 0px 7px 29px 0px;
 }
 
 #historia {
@@ -1079,8 +1025,7 @@ footer {
 .modal .content-modal {
   background-color: #fffff6;
   margin: 15% auto; 
-  padding: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   width: 60%;
   height: 70%;
   display: flex;
@@ -1203,4 +1148,103 @@ select {
   color: #131313;
   transform: scale(0.9);
   background-color: #847248;
+}
+
+
+:root {
+  --text-light: rgba(255,255,255,0.6);
+  --text-lighter: rgba(255,255,255,0.9);
+  --spacing-s: 8px;
+  --spacing-m: 13px;
+  --spacing-l: 20px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 64px;
+  --width-container: 1300px; /* aumentamos aqui */
+}
+
+.hero-section {
+  align-items: center;
+  display: flex;
+  min-height: 100%;
+  justify-content: center; /* CENTRALIZADO no centro da tela */
+  padding: var(--spacing-xxl) var(--spacing-l);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* duas colunas */
+  gap: var(--spacing-l); /* espaçamento entre os cards */
+  max-width: var(--width-container); /* largura total maior */
+  width: 100%;
+}
+
+.card {
+  list-style: none;
+  position: relative;
+  width: 100%;
+  height: 95%;
+  margin: 0; /* removemos qualquer margem */
+}
+
+.card:before {
+  content: '';
+  display: block;
+  padding-bottom: 65%; /* deixa o card mais retangular */
+  width: 100%;
+}
+
+.card__background {
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--spacing-l);
+  bottom: 0;
+  filter: brightness(0.75) saturate(1.2) contrast(0.85);
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform-origin: center;
+  transform: scale(1) translateZ(0);
+  transition: 
+    filter 200ms linear,
+    transform 200ms linear;
+}
+
+.card:hover .card__background {
+  transform: scale(1.05) translateZ(0);
+}
+
+.card-grid:hover > .card:not(:hover) .card__background {
+  filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+}
+
+.card__content {
+  left: 0;
+  padding: var(--spacing-l);
+  position: absolute;
+  top: 0;
+}
+
+.card__category {
+  color: var(--text-light);
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-s);
+  text-transform: uppercase;
+}
+
+.card__heading {
+  color: var(--text-lighter);
+  font-size: 3rem;
+  line-height: 1.4;
+  word-spacing: 100vw;
+}
+
+/* --------------------------Estilizando elementos pré-cadastro/login----------------------------- */
+
+.modal-preCad {
+  background-color: #131313;
+}
+
+.img-escudo img {
+  height: 10%;
 }

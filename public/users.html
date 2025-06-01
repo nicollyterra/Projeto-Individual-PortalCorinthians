@@ -15,7 +15,7 @@
     <title>Métricas Portal Corinthians</title>
 </head>
 
-<body onload="usuarios()">
+<body onload="carregarPage()">
  <div class="menulateral">
     <img src="imagens/logo-navbar.svg" style="height: 60px;">
 
@@ -91,7 +91,7 @@
 
       var divUserInfos = document.getElementById('txt_users')
 
-      for (let i = 0; i < usuariosGerais.length; i++) {
+      for (let i = usuariosGerais.length - 1; i >= 0; i--) {
         
         var txt_users = `
           <div class="informacoes">
@@ -99,7 +99,7 @@
             <div class="nome-user">${usuariosGerais[i].nome}</div>
             <div class="email-user">${usuariosGerais[i].email}</div>
             <div class="dtNasc-user">${usuariosGerais[i].dtNasc}</div>
-            <button onclick="excluir()" class="btn-excluir"><i class="bi bi-trash3-fill" style="color: white"></i></button>
+            <button onclick="deleteUser(${usuariosGerais[i].idUsuario})" class="btn-excluir"><i class="bi bi-trash3-fill" style="color: white"></i></button>
           </div>
         `
 
@@ -108,4 +108,26 @@
       }
     })
   }
+
+  function deleteUser(idUsuario) {
+
+ fetch('/usuarios/deleteUser', {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      idUser: idUsuario,
+    })
+  }).then(async resposta => {
+    if (resposta.ok) {
+      alert("Ação confirmada")
+      location.reload()
+    }
+  })
+}
+
+function carregarPage() {
+  usuarios() 
+}
 </script>

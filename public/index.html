@@ -10,11 +10,12 @@
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400..900&family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Special+Gothic+Expanded+One&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles/style.css">
+  <script src="js/sessions.js"></script>
   <script src="js/solicitaoces.js"></script>
   <title>Portal Corinthians</title>
 </head>
 
-<body onload="postsAceitos()">
+<body onload="postsAceitos(), preCadastro()">
 
 
   <!-- navbar e inicio  -->
@@ -30,10 +31,10 @@
         <li><a href=#torcida>Fiel Torcida</a></li>
         <li><a href=#historia>História</a></li>
         <li><a href=#modalidades>Modalidades</a></li>
-        <li><div class="toggle-button">Perfil</div></li>
       </ul>
-      <div class="user-icon">
-        <button class="botao-login"><a href="login.html" style="text-decoration: none; color: #131313;">Login</a></button>
+      <div class="user_icon">
+        <button class="botao-login"><a href="login.html"
+            style="text-decoration: none; color: #131313;">Login</a></button>
       </div>
     </nav>
 
@@ -44,7 +45,7 @@
 
   <!-- parte de noticias -->
 
-  <section id="news" >
+  <section id="news">
 
     <div class="banner-news">
       <h1>Últimas Notícias </h1>
@@ -61,7 +62,7 @@
       <div class="swiper-wrapper">
 
         <div class="swiper-slide">
-          <div class="card">
+          <div class="card-news">
             <div class="img-card">
               <img src="imagens/dorival.png" alt="Notícia 1">
             </div>
@@ -80,7 +81,7 @@
         </div>
 
         <div class="swiper-slide">
-          <div class="card">
+          <div class="card-news">
             <div class="img-card">
               <img src="imagens/camisa.png" alt="Notícia 1">
             </div>
@@ -100,7 +101,7 @@
         </div>
 
         <div class="swiper-slide">
-          <div class="card">
+          <div class="card-news">
             <div class="img-card">
               <img src="imagens/torcidanews.png" alt="Notícia 1">
             </div>
@@ -119,7 +120,7 @@
         </div>
 
         <div class="swiper-slide">
-          <div class="card">
+          <div class="card-news">
             <div class="img-card">
               <img src="imagens/ingressos-foram-trocados-neste-domingo-na-arena_x.jpg" alt="Notícia 1">
             </div>
@@ -139,7 +140,7 @@
         </div>
 
         <div class="swiper-slide">
-          <div class="card">
+          <div class="card-news">
             <div class="img-card">
               <img src="imagens/contas-noticias.jpg" alt="Notícia 1">
             </div>
@@ -275,37 +276,40 @@
 
       <!-- MODAAAAL DE JOGADOR -->
 
+
       <div class="button-craque">
         <button class="btn_craque">Votar em Craque do último jogo</button>
       </div>
 
 
-        <div class="modal">
-          <div class="content-modal">
 
-            <div class="titulo-modal">
-              <p>Vote em quem você acha que foi o <span style="color: #847248;">  craque  </span> do último jogo</p>
+
+      <div class="modal">
+        <div class="content-modal" id="modal_voto">
+
+          <div class="titulo-modal">
+            <p>Vote em quem você acha que foi o <span style="color: #847248;"> craque </span> do último jogo</p>
+          </div>
+
+          <div class="geralmodal">
+
+            <div class="img-jogador">
+              <div class="img-jog" id="foto-jogador">
+
+              </div>
             </div>
 
-            <div class="geralmodal">
 
-              <div class="img-jogador">
-                <div class="img-jog"  id="foto-jogador">
+            <div class="select-jogador">
+              <div class="infos-modal">
 
+                <div class="desc-modal">
+                  <p>Selecione um jogador</p>
                 </div>
-              </div>
+
+                <div class="select-div">
 
 
-              <div class="select-jogador">
-                <div class="infos-modal">
-
-                  <div class="desc-modal">
-                    <p>Selecione um jogador</p>
-                  </div>
-                  
-                  <div class="select-div">
-
-                  
                   <select id="escolha_jog" class="select">
                     <option value="#">Clique aqui</option>
                     <option value="1">Hugo Souza</option>
@@ -321,7 +325,7 @@
                     <option value="11">Matheuzinho</option>
                     <option value="12">Fabrizio Angileri</option>
                   </select>
-                  
+
                 </div>
 
 
@@ -335,15 +339,15 @@
                 </div>
 
 
-                </div>
               </div>
-
-
             </div>
+
+
           </div>
         </div>
+      </div>
 
-      
+
     </div>
 
     <!-- times -->
@@ -353,16 +357,32 @@
 
   </div>
 
-  <div class="elenco">
-    <div class="elencoMasc">
-      <a href="elencoMasculino.html"><img src="imagens/elenco-masc.png" alt="" style="width: 100%; height: 100%;"></a>
-      <p>Elenco Masculino</p>
-    </div>
-    <div class="elencoFem">
-      <a href="elencoFemino.html"><img src="imagens/elenco-fem.png" alt="" style="width: 100%; height: 100%;"></a>
-      <p>Elenco Feminino</p>
-    </div>
-  </div>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+    <section class="hero-section">
+      <div class="card-grid">
+        <a class="card" href="#">
+          <div class="card__background"
+            style="background-image: url(./imagens/elenco-fem.png)">
+          </div>
+          <div class="card__content">
+            <p class="card__category">Futebol</p>
+            <h3 class="card__heading">Time Feminino 2025</h3>
+          </div>
+        </a>
+        <a class="card" href="#">
+          <div class="card__background"
+            style="background-image: url(./imagens/elenco-masc.png)">
+          </div>
+          <div class="card__content">
+            <p class="card__category">Futebol</p>
+            <h3 class="card__heading">Time Masculino 2025</h3>
+          </div>
+        </a>
+    </section>
+
 
   <!-- história do time  -->
 
@@ -375,25 +395,26 @@
         <p>De
           tradições
           e glórias
-          <span style="color: #847248;">mil</span></p>
+          <span style="color: #847248;">mil</span>
+        </p>
 
       </div>
 
       <div class="img-hist">
         <div class="text-fund">
-          <p>Criado por operários, o Corinthians 
-             construiu um império gigantesco e hoje é o 
-             maior clube do Brasil, símbolo de garra, 
-             paixão e resistência. Sua história
-             transcende o futebol, representando a 
-             força do povo e a alma de uma nação.  
-             Cada título, cada gol, cada lágrima da Fiel 
-             representa mais do que vitórias:  
-             são capítulos de uma jornada marcada pela  
-             superação <br> e pelo amor incondicional.</p>
+          <p>Criado por operários, o Corinthians
+            construiu um império gigantesco e hoje é o
+            maior clube do Brasil, símbolo de garra,
+            paixão e resistência. Sua história
+            transcende o futebol, representando a
+            força do povo e a alma de uma nação.
+            Cada título, cada gol, cada lágrima da Fiel
+            representa mais do que vitórias:
+            são capítulos de uma jornada marcada pela
+            superação <br> e pelo amor incondicional.</p>
 
-             <br><br>
-          <h1 style="margin-top: 6vh;"><a href="historia.html" >Conheça a história do time do povo</a></h1>
+          <br><br>
+          <h1 style="margin-top: 6vh;"><a href="historia.html">Conheça a história do time do povo</a></h1>
 
         </div>
         <div class="img-fund">
@@ -415,14 +436,15 @@
         <p>Uma nação com mais de <br> 30 milhões de loucos.</p>
       </div>
       <div class="texto-torcida">
-        <p>Com mais de 30 milhões de torcedores, o Corinthians é o clube de futebol  
-          dono de uma das maiores torcidas do mundo e a maior do Brasil. O corinthiano 
+        <p>Com mais de 30 milhões de torcedores, o Corinthians é o clube de futebol
+          dono de uma das maiores torcidas do mundo e a maior do Brasil. O corinthiano
           não mede esforços para acompanhar os jogos do Timão e é capaz até de atravessar o mundo
-           para ver o seu time em campo.
+          para ver o seu time em campo.
           <br><br>
-          Viagens, loucuras, tatuagens, milhares de histórias de amor à camisa do Corinthians. 
-          É muita coisa boa, muito corinthiano que viraria filme, mas conseguimos contar algumas 
-          dessas histórias por aqui para os leitores alvinegros acompanharem seus companheiros.</p>
+          Viagens, loucuras, tatuagens, milhares de histórias de amor à camisa do Corinthians.
+          É muita coisa boa, muito corinthiano que viraria filme, mas conseguimos contar algumas
+          dessas histórias por aqui para os leitores alvinegros acompanharem seus companheiros.
+        </p>
       </div>
 
       <div class="titulo-car-torcida">
@@ -432,7 +454,7 @@
       <div class="carrossel-torcida">
         <div class="swiper torcida-swiper">
           <div class="swiper-wrapper" id="carrossel">
-<!--     
+            <!--     
             <div class="swiper-slide">
               <div class='card-torcida' style="background-image: url(imagens/corinthians-week/paie.jpg);">
                 <div class='info'>
@@ -505,18 +527,18 @@
               </div>
             </div>
      -->
-    
-    
+
+
             <!-- Repete .swiper-slide para cada notícia -->
           </div>
-    
+
           <!-- Botões de navegação -->
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
         </div>
       </div>
     </div>
-    
+
   </section>
 
   <!-- sessão torcidas organizadas -->
@@ -524,48 +546,52 @@
   <section class="to">
 
     <div class="geral-organizadas">
-        <div class="titulo-to">
-          <p>Torcidas Organizadas</p>
-        </div>
+      <div class="titulo-to">
+        <p>Torcidas Organizadas</p>
+      </div>
 
-        <div class="escudos">
+      <div class="escudos">
 
-          <div class="swiper organizada-swiper">
-            <div class="swiper-wrapper">
-      
-              <div class="swiper-slide">
-                <a href="https://gavioes.com.br/"  target="_blank"><img src="imagens/gavioes.svg" alt=""></a>
-              </div>
-      
-              <div class="swiper-slide">
-                <a href="https://www.instagram.com/fieltorcidajovemcamisa12/"  target="_blank"><img src="imagens/12.svg" alt=""></a>
-              </div>
-      
-              <div class="swiper-slide">
-                <a href="https://www.instagram.com/cdpavilhao9/"  target="_blank"><img src="imagens/pavilhao.svg" alt=""></a>
-              </div>
-      
-              <div class="swiper-slide">
-                <a href="https://www.lojafielmacabra.com/"  target="_blank"><img src="imagens/macabra.svg" alt=""></a>
-              </div>
-      
-              <div class="swiper-slide">
-                <a href="https://www.instagram.com/coringao_chopp/"  target="_blank"><img src="imagens/chopp.svg" alt=""></a>
-              </div>
-      
-              <div class="swiper-slide">
-                <a href="https://www.instagram.com/estopimoficial79/"  target="_blank"><img src="imagens/estopim.png" alt=""></a>
-              </div>
-      
-              <!-- Repete .swiper-slide para cada notícia -->
+        <div class="swiper organizada-swiper">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <a href="https://gavioes.com.br/" target="_blank"><img src="imagens/gavioes.svg" alt=""></a>
             </div>
-      
-            <!-- Botões de navegação -->
-            <div class="swiper-button-next-to" ></div>
-            <div class="swiper-button-prev-to"></div>
+
+            <div class="swiper-slide">
+              <a href="https://www.instagram.com/fieltorcidajovemcamisa12/" target="_blank"><img src="imagens/12.svg"
+                  alt=""></a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="https://www.instagram.com/cdpavilhao9/" target="_blank"><img src="imagens/pavilhao.svg"
+                  alt=""></a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="https://www.lojafielmacabra.com/" target="_blank"><img src="imagens/macabra.svg" alt=""></a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="https://www.instagram.com/coringao_chopp/" target="_blank"><img src="imagens/chopp.svg"
+                  alt=""></a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="https://www.instagram.com/estopimoficial79/" target="_blank"><img src="imagens/estopim.png"
+                  alt=""></a>
+            </div>
+
+            <!-- Repete .swiper-slide para cada notícia -->
+          </div>
+
+          <!-- Botões de navegação -->
+          <div class="swiper-button-next-to"></div>
+          <div class="swiper-button-prev-to"></div>
 
         </div>
-    </div>
+      </div>
 
   </section>
 
@@ -584,78 +610,79 @@
 
   </section>
 
-<!-- sessao de Modalidades -->
+  <!-- sessao de Modalidades -->
 
-<section class="modalidades" id="modalidades">
+  <section class="modalidades" id="modalidades">
 
-  <div class="geral-modalidades">
+    <div class="geral-modalidades">
 
-    <div class="titulo-modalidades">
-      <p>Você sabia?</p>
+      <div class="titulo-modalidades">
+        <p>Você sabia?</p>
 
-      
-    </div>
-    <div class="desc-modalidades">
-      <p>O sport club corinthians paulista não está só presente nos campos de futebol com o time masculino, o corinthians também faz parte de outras modelidades esportivas e futebolisitcas </p>
+
+      </div>
+      <div class="desc-modalidades">
+        <p>O sport club corinthians paulista não está só presente nos campos de futebol com o time masculino, o
+          corinthians também faz parte de outras modelidades esportivas e futebolisitcas </p>
       </div>
 
-   <div class="carrossel-mod">
-    <div class="swiper news-swiper">
-      <div class="swiper-wrapper">
+      <div class="carrossel-mod">
+        <div class="swiper news-swiper">
+          <div class="swiper-wrapper">
 
-        <div class="swiper-slide">
-          <div class="card-moda" style="display: flex; flex-direction: column;">
-          <img src="imagens/Futebol Feminino.svg" alt="" style="width: 100%; ">
+            <div class="swiper-slide">
+              <div class="card-moda" style="display: flex; flex-direction: column;">
+                <img src="imagens/Futebol Feminino.svg" alt="" style="width: 100%; ">
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="card-moda">
+                <img src="imagens/2.svg" alt="" style="width: 100%;">
+
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="card-moda">
+                <img src="imagens/3.svg" alt="" style="width: 100%;">
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="card-moda">
+                <img src="imagens/4.svg" alt="" style="width: 100%;">
+              </div>
+            </div>
+
+
+            <!-- Repete .swiper-slide para cada notícia -->
           </div>
+
+          <!-- Botões de navegação -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
         </div>
-
-        <div class="swiper-slide">
-          <div class="card-moda">
-           <img src="imagens/2.svg" alt="" style="width: 100%;">
-            
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="card-moda">
-           <img src="imagens/3.svg" alt="" style="width: 100%;">
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="card-moda">
-            <img src="imagens/4.svg" alt="" style="width: 100%;">
-          </div>
-        </div>
-
-
-        <!-- Repete .swiper-slide para cada notícia -->
       </div>
-
-      <!-- Botões de navegação -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-   </div>
     </div>
-  </div>
 
 
 
-</section>
+  </section>
 
-<section class="footer">
+  <section class="footer">
 
-  <div class="infos-footer">
+    <div class="infos-footer">
 
-    <div class="patrocinios">
+      <div class="patrocinios">
 
         <div class="titulo-patrocina">
           <p>Patrocinadores</p>
         </div>
 
         <div class="logo-patro" style="margin-left: 10%;">
-            <img src="imagens/Logo-ESPORTES-.png" alt="">
-            <img src="imagens/nike.svg" alt="" style="height: 120px; margin-left: 7vh; margin-top: 3vh;">
+          <img src="imagens/Logo-ESPORTES-.png" alt="">
+          <img src="imagens/nike.svg" alt="" style="height: 120px; margin-left: 7vh; margin-top: 3vh;">
         </div>
 
         <div class="logo-patro" style="margin-right: 10%;">
@@ -667,60 +694,76 @@
           <img src="imagens/ezze.svg" alt="">
           <img src="imagens/viva.svg" alt="" style=" width: 40%; margin-right: 3vh;">
         </div>
-    </div>
-    <div class="links">
+      </div>
+      <div class="links">
         <div class="titulo-links">
           <p>Outras Informações</p>
         </div>
         <div class="links-desc">
 
           <h2>Venda de ingressos</h2>
-          <a href="https://www.fieltorcedor.com.br/auth/login/?next=/jogos/"><p>Compre já</p></a>
+          <a href="https://www.fieltorcedor.com.br/auth/login/?next=/jogos/">
+            <p>Compre já</p>
+          </a>
 
           <h2>Neo Quimica Arena</h2>
-          <a href="https://www.tourcasadopovo.com.br/tourcasadopovo?gad_source=1&gad_campaignid=21326234087&gbraid=0AAAAAol8HgjP5bRrIZJrwErpvFlKZXoJr&gclid=Cj0KCQjw2tHABhCiARIsANZzDWr8RBqCGnIJxesGDBtfVYnMDVZDPRTWvP2-THpABnK9XZY4_AMu1i4aAp81EALw_wcB"><p>Visite a casa do timão</p></a>
+          <a
+            href="https://www.tourcasadopovo.com.br/tourcasadopovo?gad_source=1&gad_campaignid=21326234087&gbraid=0AAAAAol8HgjP5bRrIZJrwErpvFlKZXoJr&gclid=Cj0KCQjw2tHABhCiARIsANZzDWr8RBqCGnIJxesGDBtfVYnMDVZDPRTWvP2-THpABnK9XZY4_AMu1i4aAp81EALw_wcB">
+            <p>Visite a casa do timão</p>
+          </a>
 
           <h2>Trabalhe conosco</h2>
-          <a href="https://www.corinthians.com.br/vagas"><p>Vagas</p></a>
+          <a href="https://www.corinthians.com.br/vagas">
+            <p>Vagas</p>
+          </a>
 
           <h2>Fiel Torcedor planos</h2>
-          <a href="https://www.fieltorcedor.com.br/planos/"><p>Assine-já</p></a>
+          <a href="https://www.fieltorcedor.com.br/planos/">
+            <p>Assine-já</p>
+          </a>
 
         </div>
-    </div>
-    <div class="redes">
+      </div>
+      <div class="redes">
 
         <div class="titulo-redes">
           <p>Siga-nos</p>
         </div>
 
         <div class="links-redes">
-          <a href="https://www.instagram.com/corinthians/" target="_blank"><img src="imagens/instagram-new.png" alt="" style="height: 50px;"></a>
-          <a href="https://x.com/corinthians/with_replies" target="_blank" rel="noopener noreferrer"><img src="imagens/X_logo_2023_(white).png" alt="" style="height: 45px;"></a>
-          <a href="https://www.youtube.com/corinthians" target="_blank" rel="noopener noreferrer"><img src="imagens/youtube-play.png" alt="" style="height: 50px;"></a>
+          <a href="https://www.instagram.com/corinthians/" target="_blank"><img src="imagens/instagram-new.png" alt=""
+              style="height: 50px;"></a>
+          <a href="https://x.com/corinthians/with_replies" target="_blank" rel="noopener noreferrer"><img
+              src="imagens/X_logo_2023_(white).png" alt="" style="height: 45px;"></a>
+          <a href="https://www.youtube.com/corinthians" target="_blank" rel="noopener noreferrer"><img
+              src="imagens/youtube-play.png" alt="" style="height: 50px;"></a>
         </div>
 
         <div class="links-redes">
-          <a href="https://br.linkedin.com/company/sccorinthians" target="_blank" rel="noopener noreferrer"><img src="imagens/linkedin--v2.png" alt="" style="height: 50px;"></a>
-          <a href="https://www.tiktok.com/@corinthians" target="_blank"><img src="imagens/tiktok.png" alt="" style="height: 50px;"></a>
-          <a href="https://www.facebook.com/corinthians/?locale=pt_BR" target="_blank"><img src="imagens/facebook-new.png" alt="" style="height: 50px;"></a>
+          <a href="https://br.linkedin.com/company/sccorinthians" target="_blank" rel="noopener noreferrer"><img
+              src="imagens/linkedin--v2.png" alt="" style="height: 50px;"></a>
+          <a href="https://www.tiktok.com/@corinthians" target="_blank"><img src="imagens/tiktok.png" alt=""
+              style="height: 50px;"></a>
+          <a href="https://www.facebook.com/corinthians/?locale=pt_BR" target="_blank"><img
+              src="imagens/facebook-new.png" alt="" style="height: 50px;"></a>
         </div>
+      </div>
+
     </div>
 
-  </div>
+  </section>
+  <hr>
 
-</section>
-<hr>
-
-<footer>
-  <h3>Sport Club Corinthians Paulista © 2025 - Todos os direitos reservados - Proteção de Dados</h3>
-  <h3>Desenvolvido por: Nicolly Emilly De Souza Terra</h3>
-</footer>
+  <footer>
+    <h3>Sport Club Corinthians Paulista © 2025 - Todos os direitos reservados - Proteção de Dados</h3>
+    <h3>Desenvolvido por: Nicolly Emilly De Souza Terra</h3>
+  </footer>
 
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
+
 </html>
 
 <script>
@@ -811,19 +854,19 @@
     const idSelecionado = select.value;
     const jogador = jogadores.find(j => j.id == idSelecionado);
 
-     if (jogador) {
-    nomeSpan.textContent = jogador.nome;
-    posicaoSpan.textContent = jogador.posicao;
-    fotoDiv.style.backgroundImage = `url('/imagens/jogadoresMasc/${jogador.imagem}')`;
-    fotoDiv.style.backgroundSize = "cover";
-    fotoDiv.style.backgroundPosition = "center";
-    fotoDiv.style.border = "2px solid #131313";
-  } else {
-    nomeSpan.textContent = "-";
-    posicaoSpan.textContent = "-";
-    fotoDiv.style.backgroundImage = "none";
-    fotoDiv.style.backgroundColor = "#8a7745";
-  }
+    if (jogador) {
+      nomeSpan.textContent = jogador.nome;
+      posicaoSpan.textContent = jogador.posicao;
+      fotoDiv.style.backgroundImage = `url('/imagens/jogadoresMasc/${jogador.imagem}')`;
+      fotoDiv.style.backgroundSize = "cover";
+      fotoDiv.style.backgroundPosition = "center";
+      fotoDiv.style.border = "2px solid #131313";
+    } else {
+      nomeSpan.textContent = "-";
+      posicaoSpan.textContent = "-";
+      fotoDiv.style.backgroundImage = "none";
+      fotoDiv.style.backgroundColor = "#8a7745";
+    }
   });
 
   function votar() {
@@ -832,32 +875,32 @@
     var voto_user = escolha_jog.value;
 
     if (voto_user == '#') {
-      alert ("Selecione uma opção válida para votar.")
+      alert("Selecione uma opção válida para votar.")
     } else {
       fetch(`/usuarios/votar/${idUsuario}`, {
-      method: "POST",
-      headers: {
-        "Content-type":"application/json"
-      },
-      body:  JSON.stringify({
-                votoServer: Number(voto_user) 
-            })
-    })
-      .then(async res => {
-        if (res.ok) {
-          alert("Seu voto foi enviado com sucesso");
-        } else {
-          var msg_erro = await res.json()
-          if (msg_erro) {
-            alert ("Você não pode votar mais de uma vez na mesma partida.")
-          }
-        }
+        method: "POST",
+        headers: {
+          "Content-type": "application/json"
+        },
+        body: JSON.stringify({
+          votoServer: Number(voto_user)
+        })
       })
-      .catch(err => {
-        console.error("Erro:", err);
-      });
+        .then(async res => {
+          if (res.ok) {
+            alert("Seu voto foi enviado com sucesso");
+          } else {
+            var msg_erro = await res.json()
+            if (msg_erro) {
+              alert("Você não pode votar mais de uma vez na mesma partida.")
+            }
+          }
+        })
+        .catch(err => {
+          console.error("Erro:", err);
+        });
     }
-    
-    
+
+
   }
 </script>

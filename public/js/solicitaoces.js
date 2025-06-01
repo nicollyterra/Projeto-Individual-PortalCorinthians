@@ -140,6 +140,8 @@ function chartJogadores() {
     })
 }
 
+
+
 function iniciarPagnia() {
   kpiVotos();
   kpiUsers();

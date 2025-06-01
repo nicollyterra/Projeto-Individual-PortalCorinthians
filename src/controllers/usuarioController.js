@@ -291,6 +291,19 @@ function chartUsers(req, res) {
         })
 }
 
+function deleteUser(req, res) {
+    let idUser = req.body.idUser; 
+     usuarioModel.deleteUser(idUser)
+        .then(async resultado => {
+            if (resultado.length > 0) {
+                res.status(200).send("Ação confirmada.")
+                console.log('retorno dos dados', resultado[0].idUser)
+            }
+        })
+}
+
+
+
 
 module.exports = {
     autenticar,
@@ -308,5 +321,6 @@ module.exports = {
     kpiJogMaisVot,
     kpiJogMensVot,
     chartUsers,
-    chartJogadores
+    chartJogadores, 
+    deleteUser
 }
