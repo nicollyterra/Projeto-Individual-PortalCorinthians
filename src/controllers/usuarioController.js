@@ -279,7 +279,7 @@ function chartUsers(req, res) {
             }
 
             for (let i = 0; i < resultado.length; i++) {
-                console.log('retorno dos dados', resultado[i].total_usuarios)
+               
                 vt_nomeMes.push(resultado[i].total_usuarios)
                 console.log(vt_nomeMes)
             }
@@ -295,9 +295,9 @@ function deleteUser(req, res) {
     let idUser = req.body.idUser; 
      usuarioModel.deleteUser(idUser)
         .then(async resultado => {
-            if (resultado.length > 0) {
+            if (resultado.affectedRows == 1) {
                 res.status(200).send("Ação confirmada.")
-                console.log('retorno dos dados', resultado[0].idUser)
+                
             }
         })
 }

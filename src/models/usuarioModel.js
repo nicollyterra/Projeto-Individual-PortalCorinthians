@@ -103,7 +103,7 @@ function kpiUsers() {
 
 function usuarios() {
     var instrucaoSql = `
-    SELECT idUsuario, nome, email, date_format(dtNasc, '%d/%m/%Y') dtNasc FROM usuario`
+    SELECT idUsuario, nome, email, date_format(dtNasc, '%d/%m/%Y') dtNasc FROM usuario WHERE statusUser = 1`
     return database.executar(instrucaoSql);
 }
 
@@ -167,7 +167,7 @@ function chartJogadores() {
 
 function deleteUser(idUsuario) {
     var instrucaoSql = `
-    DELETE FROM usuario WHERE idUsuario = ${idUsuario};`
+    UPDATE usuario SET statusUser = 0 WHERE idUsuario = ${idUsuario}`
     return database.executar(instrucaoSql);
 }
 
