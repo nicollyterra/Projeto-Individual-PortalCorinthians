@@ -1273,6 +1273,106 @@ select {
   word-spacing: 100vw;
 }
 
+.calculadora {
+ 
+  width: 100%;
+}
+
+.titulo-calc {
+  height: 7%;
+  width: 100%;
+
+  font-size: 70px;
+  text-align: center;
+  margin-bottom: 5vh;
+}
+
+.desc-calc {
+  text-align: center;
+  font-size: larger;
+  width: 60%;
+  justify-self: center;
+}
+
+.imagem-mosqueteiro {
+  height: 100%;
+  width: 20%;
+  
+}
+
+input {
+  width: 80%;
+  height: 20px;
+  padding: 2vh;
+  border-radius: 8px;
+  background-color: transparent;
+  border: #131313 2px solid;
+}
+
+.btn_calc {
+  width: 80%;
+  height: 30px;
+  border-radius: 5px;
+  font-family: 'Poppins';
+  font-weight: 500;
+  border: none;
+  background-color: #131313;
+  color: #fffff6;
+}
+
+
+
+.geral-calc {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  align-self: center;
+  padding: 5vh;
+  justify-self: center;
+  border-radius: 10px;
+  margin-top: 4vh;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.inputs-calc {
+  width: 50%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 10%;
+}
+
+label {
+  padding-top: 2vh;
+}
+
+.slc_calc {
+  width: 80%;
+  height: 30px;
+  margin-bottom: 4vh;
+}
+
+.resultado {
+  width: 50%;
+  height: 100%;
+  background-color: #131313;
+  border-radius: 10px;
+}
+.resultado h1 {
+  color: #fffff6;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+#div_txt {
+  color: #fffff6;
+  text-align: center;
+  margin-top: 2vh;
+}
 /* --------------------------Estilizando elementos pré-cadastro/login----------------------------- */
 
 .modal-preCad {

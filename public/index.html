@@ -47,7 +47,7 @@
 
   <!-- parte de noticias -->
 
-  <section id="news"  class="fade-section">
+  <section id="news" class="fade-section">
 
     <div class="banner-news">
       <h1>Últimas Notícias </h1>
@@ -361,38 +361,40 @@
 
 
 
-    <section class="hero-section fade-section">
-      <div class="card-grid">
-        <a class="card" href="./elencoFemino.html">
-          <div class="card__background"
-            style="background-image: url(./imagens/elenco-fem.png)">
-          </div>
-          <div class="card__content">
-            <p class="card__category">Futebol</p>
-            <h3 class="card__heading">Time Feminino 2025</h3>
-          </div>
-        </a>
-        <a class="card" href="./elencoMasculino.html">
-          <div class="card__background"
-            style="background-image: url(./imagens/elenco-masc.png)">
-          </div>
-          <div class="card__content">
-            <p class="card__category">Futebol</p>
-            <h3 class="card__heading">Time Masculino 2025</h3>
-          </div>
-        </a>
-    </section>
+  <section class="hero-section fade-section">
+    <div class="card-grid">
+      <a class="card" href="./elencoFemino.html">
+        <div class="card__background" style="background-image: url(./imagens/elenco-fem.png)">
+        </div>
+        <div class="card__content">
+          <p class="card__category">Futebol</p>
+          <h3 class="card__heading">Time Feminino 2025</h3>
+        </div>
+      </a>
+      <a class="card" href="./elencoMasculino.html">
+        <div class="card__background" style="background-image: url(./imagens/elenco-masc.png)">
+        </div>
+        <div class="card__content">
+          <p class="card__category">Futebol</p>
+          <h3 class="card__heading">Time Masculino 2025</h3>
+        </div>
+      </a>
+  </section>
+
+
 
 
   <!-- história do time  -->
 
-  <section id="historia"  class="fade-section">
+  <section id="historia" class="fade-section">
 
     <div class="containers-historia">
-    <div class="textos">
-      <div class="titulo"><p>de tradições e <span style="color: #847248;"> glórias</span> mil</p></div>
-      <div class="text-fund">
-        <p>Criado por operários, o Corinthians
+      <div class="textos">
+        <div class="titulo">
+          <p>de tradições e <span style="color: #847248;"> glórias</span> mil</p>
+        </div>
+        <div class="text-fund">
+          <p>Criado por operários, o Corinthians
             construiu um império gigantesco e hoje é o
             maior clube do Brasil, símbolo de garra,
             paixão e resistência. Sua história
@@ -402,16 +404,16 @@
             representa mais do que vitórias:
             são capítulos de uma jornada marcada pela
             superação <br> e pelo amor incondicional.</p>
-            
+
+        </div>
+        <div class="link-historia">
+          <p><a href="historia.html">Conheça a história do time do povo</a></p>
+        </div>
+
       </div>
-      <div class="link-historia">
-        <p><a href="historia.html">Conheça a história do time do povo</a></p>
+      <div class="imagem-fund">
+        <img src="./imagens/fundadores.svg" alt="">
       </div>
-      
-    </div>
-    <div class="imagem-fund">
-      <img src="./imagens/fundadores.svg" alt="">
-    </div>
 
   </section>
 
@@ -532,7 +534,7 @@
 
   <!-- sessão torcidas organizadas -->
 
-  <section class="to fade-section"  >
+  <section class="to fade-section">
 
     <div class="geral-organizadas">
       <div class="titulo-to">
@@ -583,10 +585,63 @@
       </div>
 
   </section>
+    <!-- calculadora de poupança -->
+
+  <section class="calculadora">
+    <div class="titulo-calc">
+      <p style="font-family: 'Hyperwave-two';">Poupança Corinthiana!</p>
+    </div>
+    <div class="desc-calc">
+      <p>Transforme cada gol do Timão em um investimento para o seu futuro!
+        <br><br>
+
+        Já pensou se, a cada vez que o Corinthians balançasse a rede, você também marcasse um gol na sua vida
+        financeira? Com a Poupança Corinthiana, você simula quanto poderia juntar investindo um valor simbólico por gol
+        marcado, com juros compostos ao longo dos anos.
+
+        É simples, educativo e com a cara do torcedor fiel!
+        Escolha quanto investir por gol, defina por quantos anos e veja quanto isso pode render com diferentes tipos de
+        aplicação — da boa e velha poupança ao Tesouro Selic.
+      </p>
+    </div>
+
+    <div class="geral-calc">
+  
+
+    <div class="inputs-calc">
+      <label for="valorPorGol">Valor a guardar por gol (R$):</label>
+      <input type="number" id="ipt_valorPorGol" value="10" />
+
+      <label for="golsAno">Gols por ano/temporada:</label>
+      <input type="number" id="ipt_golsAno" value="65" />
+
+      <label for="anos">Quantos anos:</label>
+      <input type="number" id="ipt_anos" value="5" />
+
+      <label for="juros">Tipo de investimento:</label>
+      <select id="slc_juros" class="slc_calc">
+        <option value="0.005">0,5% ao mês (Poupança)</option>
+        <option value="0.0084">0,84% ao mês (Tesouro Selic)</option>
+        <option value="0.01">1% ao mês (Simulação livre)</option>
+      </select>
+
+      <button onclick="simular()" class="btn_calc">Simular</button>
+    </div>
+
+    <div class="resultado">
+      <h1>Resultado</h1>
+
+      <div id="div_txt"></div>
+    </div>
+
+    </div>
+
+
+  </section>
 
   <!-- sessão de titulos -->
 
-  <section class="titulos fade-section" >
+  <section class="titulos fade-section">
 
     <div class="titulos-geral">
       <div class="titulo-campeao">
@@ -757,7 +812,7 @@
 
 <script>
 
-    const observer = new IntersectionObserver(entries => {
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('fade-in');
@@ -902,4 +957,28 @@
 
 
   }
+
+   function simular() {
+      let valorPorGol =  Number (ipt_valorPorGol.value) 
+      let golsAno = Number( ipt_golsAno.value)
+      let anos = Number (ipt_anos.value) ;
+      let taxaMensal = Number (slc_juros.value) ;
+      let meses = anos * 12;
+      let aportesAno = valorPorGol * golsAno;
+      let aporteMensal = aportesAno / 12;
+
+      let total = 0;
+
+      for (let i = 0; i < meses; i++) {
+        total = total * (1 + taxaMensal) + aporteMensal;
+      }
+
+      div_txt.innerHTML = `
+        Com R$ ${valorPorGol} por gol e ${golsAno} gols por ano ou temporada, <br>
+        em ${anos} anos com ${(taxaMensal * 100).toFixed(2)}% ao mês você teria: <br>
+        <strong style="font-size: 25px">R$ ${total.toFixed(2)}</strong> <br><br>
+         Uma iniciativa em parceria com a Ezze Seguros <br>
+         proteger o futuro também é coisa de corinthiano raiz.
+      `;
+    }
 </script>
