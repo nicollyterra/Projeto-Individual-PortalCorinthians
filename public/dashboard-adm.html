@@ -22,15 +22,15 @@
     <img src="imagens/logo-navbar.svg" style="height: 60px;">
 
     <div class="imgcliente">
-      <div class="fotouser">
+      <div class="fotouser" id="fotouser">
       </div>
       <div class="nomeuser">
-        <h2>Thiago Prates</h2>
+        <h2 id="nomeUser"></h2>
       </div>
     </div>
 
     <hr class="line">
-
+ 
     <div class="navegacao">
 
 
@@ -98,6 +98,11 @@
 </body>
 </html>
 <script>
+
+  const nome = JSON.parse(sessionStorage.NOME_USUARIO);
+  const img_user = JSON.parse(sessionStorage.IMG_USER); 
+  nomeUser.innerHTML = `${nome}`
+  fotouser.style.backgroundImage = `url('/uploads/${img_user}')`
 
 fetch('/usuarios/chartJogadores').then(response => response.json()).then(data => {
 
