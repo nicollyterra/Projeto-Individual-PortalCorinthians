@@ -1,10 +1,10 @@
 function preCadastro() {
-   
 
-    if (sessionStorage.ID_USUARIO == undefined) {
- 
 
-        modal_voto.innerHTML = `
+  if (sessionStorage.ID_USUARIO == undefined) {
+
+
+    modal_voto.innerHTML = `
          <div style="
           display: flex;
           align-items: center;
@@ -48,12 +48,27 @@ function preCadastro() {
           </div>
         </div>
 `
-    } else {
-        user_icon.innerHTML = `
-        <div>
-         oiiiiiiii
-        </div>`
-    }
+  } else {
+    btn_login.innerHTML = `
+         
+         <a href="minha-conta.html">
+            <img src="../uploads/${JSON.parse(sessionStorage.IMG_USER)}" style="width: 60px; height: 60px; border-radius: 50px; border: black 3px solid">
+            </a>`
+
+    console.log(JSON.parse(sessionStorage.IMG_USER))
+    //  sessionStorage.IMG_USER = JSON.stringify(json[0].imagem_usuario)
+    
+  }
 
 
+}
+
+function logout(){
+  sessionStorage.clear() 
+   
+    alert("Logout realizado com sucesso!");
+
+    setTimeout(() => {
+        window.location = "/index.html";
+    }, 500);
 }

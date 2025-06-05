@@ -56,14 +56,17 @@
     </div>
 
     <div class="logout">
-      <a href="login.html" style="text-decoration: none;"><i class="bi bi-box-arrow-right"  style="color: white;">Sair</i></a>
+      <a href="login.html" style="text-decoration: none;" ><i class="bi bi-box-arrow-right"  style="color: white;">Sair</i></a>
     </div>
   </div>
 
   <div class="geral">
-    <div class="titulo"><p>Usuários Cadastrados</p></div>
+    <div class="titulo"><p>Usuários Cadastrados</p> 
+      <input type="text" class="ipt_pesquisa" id="ipt_pesquisa"> 
+      <button class="btn_pesquisa" onload="pesquisarUser()"><i class="bi bi-search"></i></button>
+    </div>
 
-    <hr>
+   
 
     <div class="usuarios">
       <div class="labels">
@@ -136,6 +139,11 @@
 
 function carregarPage() {
   usuarios() 
+}
+
+function pesquisarUser(params) {
+  let parametroBusca = ipt_pesquisa.value
+   
 }
 
 

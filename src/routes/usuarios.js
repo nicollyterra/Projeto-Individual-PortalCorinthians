@@ -85,6 +85,9 @@ router.post("/deleteUser", function (req, res) {
      usuarioController.deleteUser(req, res); 
 })
 
+router.post("/pesquisarUser:busca", function (req, res) {
+     usuarioController.pesquisarUser(req, res); 
+})
 
 
 module.exports = router;

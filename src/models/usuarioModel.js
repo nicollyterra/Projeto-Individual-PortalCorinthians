@@ -12,8 +12,8 @@ function autenticar(email, senha) {
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
 function cadastrar(nome, dtNasc, email, senha, imagem_usuario) {
     var instrucao = `
-        INSERT INTO usuario (nome, dtNasc, email, senha, imagem_usuario)
-        VALUES ('${nome}', '${dtNasc}', '${email}', '${senha}', '${imagem_usuario}');
+        INSERT INTO usuario (nome, dtNasc, email, senha, imagem_usuario, statusUser)
+        VALUES ('${nome}', '${dtNasc}', '${email}', '${senha}', '${imagem_usuario}', 1);
     `;
     return database.executar(instrucao);
 }
@@ -169,6 +169,11 @@ function deleteUser(idUsuario) {
     var instrucaoSql = `
     UPDATE usuario SET statusUser = 0 WHERE idUsuario = ${idUsuario}`
     return database.executar(instrucaoSql);
+}
+
+function pesquisarUser(params) {
+    var instrucaoSql = `
+    SELECT * FROM usuario where `
 }
 
 module.exports = {

@@ -134,12 +134,17 @@ function chartJogadores() {
     .then(function (resultado) {
 
       console.log('foi!')
-
       // var menosVotos = resultado[0].votos
 
     })
+  // setInterval(chartJogadores,5000)
 }
 
+function  editarUser() {
+  fetch('/usuarios/editarUser', {
+    method: "PUT"
+  })
+}
 
 
 function iniciarPagnia() {

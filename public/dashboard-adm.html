@@ -2,23 +2,24 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400..900&family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Special+Gothic+Expanded+One&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles/dash.css">
-    <script src="./js/solicitaoces.js"></script>
-    <link rel="icon" type="image/png" href="./imagens/logo-do-corinthians-4096.png">
-    <title>Métricas Portal Corinthians</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta http-equiv="refresh" content="5"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400..900&family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Special+Gothic+Expanded+One&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/dash.css">
+  <script src="./js/solicitaoces.js"></script>
+  <link rel="icon" type="image/png" href="./imagens/logo-do-corinthians-4096.png">
+  <title>Métricas Portal Corinthians</title>
 </head>
 
 <body onload="iniciarPagnia()" style="overflow: hidden;">
- <div class="menulateral">
+  <div class="menulateral">
     <img src="imagens/logo-navbar.svg" style="height: 60px;">
 
     <div class="imgcliente">
@@ -30,23 +31,23 @@
     </div>
 
     <hr class="line">
- 
+
     <div class="navegacao">
 
 
       <ul class="nav-links">
         <li class="icon">
-          <img src="imagens/dashicon.svg">  
+          <img src="imagens/dashicon.svg">
           <a href="dashboard-adm.html">Dashboard</a>
         </li>
 
         <li class="icon">
-        <i class="bi bi-send-plus" style="color: white;"></i>
-          <a href="solicitacoes.html"> Solicitações</a> 
+          <i class="bi bi-send-plus" style="color: white;"></i>
+          <a href="solicitacoes.html"> Solicitações</a>
         </li>
-        
-         <li class="icon">
-          <i class="bi bi-people-fill"  style="color: white;"></i>
+
+        <li class="icon">
+          <i class="bi bi-people-fill" style="color: white;"></i>
           <a href="users.html"> Usuários</a>
         </li>
 
@@ -55,117 +56,130 @@
     </div>
 
     <div class="logout">
-      <a href="login.html" style="text-decoration: none;"><i class="bi bi-box-arrow-right"  style="color: white;">Sair</i></a>
+      <a href="login.html" style="text-decoration: none;"><i class="bi bi-box-arrow-right"
+          style="color: white;">Sair</i></a>
     </div>
   </div>
 
   <div class="geral">
-    <div class="titulo"><p>Métricas Portal Corinthians</p></div>
+    <div class="titulo">
+      <p>Métricas Portal Corinthians</p>
+    </div>
 
     <div class="indicadores">
-        <div class="kpi">
-           <div class="desc-kpi"><p>Usuários cadastrados</p></div> 
-           <div class="numkpi" id="num-kpi-users"></div>
+      <div class="kpi">
+        <div class="desc-kpi">
+          <p>Usuários cadastrados</p>
         </div>
-        <div class="kpi">
-            <div class="desc-kpi"><p>Usuários ativos (votações)</p></div>
-            <div class="numkpi" id="num-kpi"></div>
+        <div class="numkpi" id="num-kpi-users"></div>
+      </div>
+      <div class="kpi">
+        <div class="desc-kpi" style="text-align: center;font-size: large;">
+          <p>Usuários ativos em votações</p>
         </div>
-        <div class="kpi">
-            <div class="desc-kpi"><p>Jogador mais votado</p></div>
-            <div class="kpi_max_jog" id="kpi_max_jog"></div>
+        <div class="numkpi" id="num-kpi"></div>
+      </div>
+      <div class="kpi">
+        <div class="desc-kpi">
+          <p>Jogador mais votado</p>
         </div>
-        <div class="kpi">
-            <div class="desc-kpi"><p>Jogador menos votado</p></div>
-            <div class="kpi_min_jog" id="kpi_min_jog"></div>
+        <div class="kpi_max_jog" id="kpi_max_jog"></div>
+      </div>
+      <div class="kpi">
+        <div class="desc-kpi">
+          <p>Jogador menos votado</p>
         </div>
+        <div class="kpi_min_jog" id="kpi_min_jog"></div>
+      </div>
     </div>
 
     <div class="graficos">
-        <div class="grafico">
-            <p>Ranking dos jogadores mais votados</p>
-                    <canvas id="myChart"></canvas>
-        </div>
-        <div class="grafico">
-            <p>Usuários que se cadastraram nos últimos meses</p>
-                     <canvas id="myChart2"></canvas>
-        </div>
+      <div class="grafico">
+        <p>Ranking dos jogadores mais votados</p>
+        <canvas id="myChart"></canvas>
+      </div>
+      <div class="grafico">
+        <p>Usuários que se cadastraram nos últimos meses</p>
+        <canvas id="myChart2" onload="atualizar(600);"></canvas>
+      </div>
     </div>
   </div>
 
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
+
 </html>
 <script>
 
   const nome = JSON.parse(sessionStorage.NOME_USUARIO);
-  const img_user = JSON.parse(sessionStorage.IMG_USER); 
+  const img_user = JSON.parse(sessionStorage.IMG_USER);
   nomeUser.innerHTML = `${nome}`
   fotouser.style.backgroundImage = `url('/uploads/${img_user}')`
 
-fetch('/usuarios/chartJogadores').then(response => response.json()).then(data => {
+  fetch('/usuarios/chartJogadores').then(response => response.json()).then(data => {
 
-  const ctx = document.getElementById('myChart');
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
+    const ctx = document.getElementById('myChart');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
         labels: data.nomes,
         datasets: [
-            {
-                label: 'Quantidade de votos',
-                data: data.votos,
-                borderColor: '#770303',
-                backgroundColor: '#770303',
-            },
+          {
+            label: 'Quantidade de votos',
+            data: data.votos,
+            borderColor: '#770303',
+            backgroundColor: '#770303',
+          },
         ]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true,
-                ticks: {
-                    stepSize: 1,
-                    precision: 0
-                }
-            }
-        }
-    }
-});
-  
-
-fetch('/usuarios/chartUsers').then(response => response.json()).then(data => {
-
- const ctx2 = document.getElementById('myChart2');
-  
-  new Chart(ctx2, {
-      type: 'line',
-      data: {
-          labels: data.data_users,
-          datasets: [{
-              label: 'Fluxo de Cadastros',
-              data: data.data_users_mes,
-              borderWidth: 1, 
-             borderColor: '#770303',
-             backgroundColor: '#770303',
-          }]
       },
       options: {
-          scales: {
-              y: {
-                  beginAtZero: true, 
-                  ticks: {
-                    stepSize: 5, 
-                  }
-              }
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              stepSize: 1,
+              precision: 0
+            }
           }
+        }
       }
-  });
-})
+    });
 
 
-})
+    fetch('/usuarios/chartUsers').then(response => response.json()).then(data => {
 
+      const ctx2 = document.getElementById('myChart2');
 
- 
+      const chart = new Chart(ctx2, {
+        type: 'line',
+        data: {
+          labels: data.data_users,
+          datasets: [{
+            label: 'Fluxo de Cadastros',
+            data: data.data_users_mes,
+            borderWidth: 1,
+            borderColor: '#770303',
+            backgroundColor: '#770303',
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                stepSize: 5,
+              }
+            }
+          }
+        }
+      });
+    })
+  })
+  // function atualizar(interval){
+  //   setTimeout("atualizarGrafico();", interval)
+  // }
+  // function atualizarGrafico(){
+  //   window.location.reload()
+  // }
 </script>

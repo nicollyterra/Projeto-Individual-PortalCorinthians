@@ -22,10 +22,9 @@
     width: 100%;
     padding: 20px 50px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
     top: 0;
     left: 0;
+    align-items: center;
     height: 80px;
     background-color: #131313;
   }
@@ -47,6 +46,7 @@
     display: flex;
     padding-top: 1vh;
     gap: 30px;
+    margin-left: 35%;
   }
   
   .nav-links li a {
@@ -72,7 +72,7 @@
     width: 100%;
   }
   
-  .botao-login {
+  .btn-login {
     width: 80px;
     height: 30px;
     border: none;
@@ -84,7 +84,7 @@
     background-color: #fffff6;
   }
   
-  .botao-login:hover {
+  .btn-login:hover {
     background-color: #847248;
     color: #fffff6;
   }

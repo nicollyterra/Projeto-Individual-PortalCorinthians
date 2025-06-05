@@ -113,6 +113,8 @@ ul {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     padding-left: 5vh;
+    display: flex;
+    justify-content: space-between;
     
 }
 
@@ -125,6 +127,24 @@ ul {
     align-items: center;
 }
 
+.ipt_pesquisa {
+    margin-right: -31%;
+    width: 30%;
+    height: 50%;
+    margin-top: 1%;
+    border-radius: 30px;
+    padding: 2vh;
+    background-color: transparent;
+    border: #131313 3px solid;
+}
+
+
+.btn_pesquisa {
+    background-color: transparent;
+    border: none;
+    margin-right: 5vh;
+    font-size: 28px;
+}
 .kpi {
     width: 20%;
     height: 50%;

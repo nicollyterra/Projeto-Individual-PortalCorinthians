@@ -22,7 +22,7 @@
 
   <!-- navbar e inicio  -->
 
-  <header class="hero fade-section">
+  <header class="hero">
     <nav class="navbar">
       <div class="logo">
         <img src="imagens/logo-navbar.svg" alt="Logo Corinthians">
@@ -34,9 +34,9 @@
         <li><a href=#historia>História</a></li>
         <li><a href=#modalidades>Modalidades</a></li>
       </ul>
-      <div class="user_icon">
-        <button class="botao-login"><a href="login.html"
-            style="text-decoration: none; color: #131313;">Login</a></button>
+      <div class="user_icon" id="btn_login">
+        <button class="botao-login"><a href="login.html" style="text-decoration: none; color: #131313;">Login</a>
+        </button>
       </div>
     </nav>
 
@@ -585,7 +585,7 @@
       </div>
 
   </section>
-    <!-- calculadora de poupança -->
+  <!-- calculadora de poupança -->
 
   <section class="calculadora">
     <div class="titulo-calc">
@@ -606,33 +606,33 @@
     </div>
 
     <div class="geral-calc">
-  
 
-    <div class="inputs-calc">
-      <label for="valorPorGol">Valor a guardar por gol (R$):</label>
-      <input type="number" id="ipt_valorPorGol" value="10" />
 
-      <label for="golsAno">Gols por ano/temporada:</label>
-      <input type="number" id="ipt_golsAno" value="65" />
+      <div class="inputs-calc">
+        <label for="valorPorGol">Valor a guardar por gol (R$):</label>
+        <input type="number" id="ipt_valorPorGol" value="10" />
 
-      <label for="anos">Quantos anos:</label>
-      <input type="number" id="ipt_anos" value="5" />
+        <label for="golsAno">Gols por ano/temporada:</label>
+        <input type="number" id="ipt_golsAno" value="65" />
 
-      <label for="juros">Tipo de investimento:</label>
-      <select id="slc_juros" class="slc_calc">
-        <option value="0.005">0,5% ao mês (Poupança)</option>
-        <option value="0.0084">0,84% ao mês (Tesouro Selic)</option>
-        <option value="0.01">1% ao mês (Simulação livre)</option>
-      </select>
+        <label for="anos">Quantos anos:</label>
+        <input type="number" id="ipt_anos" value="5" />
 
-      <button onclick="simular()" class="btn_calc">Simular</button>
-    </div>
+        <label for="juros">Tipo de investimento:</label>
+        <select id="slc_juros" class="slc_calc">
+          <option value="0.005">0,5% ao mês (Poupança)</option>
+          <option value="0.0084">0,84% ao mês (Tesouro Selic)</option>
+          <option value="0.01">1% ao mês (Simulação livre)</option>
+        </select>
 
-    <div class="resultado">
-      <h1>Resultado</h1>
+        <button onclick="simular()" class="btn_calc">Simular</button>
+      </div>
 
-      <div id="div_txt"></div>
-    </div>
+      <div class="resultado">
+        <h1>Resultado</h1>
+
+        <div id="div_txt"></div>
+      </div>
 
     </div>
 
@@ -958,27 +958,27 @@
 
   }
 
-   function simular() {
-      let valorPorGol =  Number (ipt_valorPorGol.value) 
-      let golsAno = Number( ipt_golsAno.value)
-      let anos = Number (ipt_anos.value) ;
-      let taxaMensal = Number (slc_juros.value) ;
-      let meses = anos * 12;
-      let aportesAno = valorPorGol * golsAno;
-      let aporteMensal = aportesAno / 12;
+  function simular() {
+    let valorPorGol = Number(ipt_valorPorGol.value)
+    let golsAno = Number(ipt_golsAno.value)
+    let anos = Number(ipt_anos.value);
+    let taxaMensal = Number(slc_juros.value);
+    let meses = anos * 12;
+    let aportesAno = valorPorGol * golsAno;
+    let aporteMensal = aportesAno / 12;
 
-      let total = 0;
+    let total = 0;
 
-      for (let i = 0; i < meses; i++) {
-        total = total * (1 + taxaMensal) + aporteMensal;
-      }
+    for (let i = 0; i < meses; i++) {
+      total = total * (1 + taxaMensal) + aporteMensal;
+    }
 
-      div_txt.innerHTML = `
+    div_txt.innerHTML = `
         Com R$ ${valorPorGol} por gol e ${golsAno} gols por ano ou temporada, <br>
         em ${anos} anos com ${(taxaMensal * 100).toFixed(2)}% ao mês você teria: <br>
         <strong style="font-size: 25px">R$ ${total.toFixed(2)}</strong> <br><br>
          Uma iniciativa em parceria com a Ezze Seguros <br>
          proteger o futuro também é coisa de corinthiano raiz.
       `;
-    }
+  }
 </script>
