@@ -171,9 +171,10 @@ function deleteUser(idUsuario) {
     return database.executar(instrucaoSql);
 }
 
-function pesquisarUser(params) {
+function pesquisarUser(pesquisa) {
     var instrucaoSql = `
-    SELECT * FROM usuario where `
+    SELECT idUsuario, nome, email, date_format(dtNasc, '%d/%m/%Y') dtNasc FROM usuario WHERE nome LIKE '${pesquisa}%';`
+    return database.executar(instrucaoSql);
 }
 
 module.exports = {
@@ -193,5 +194,6 @@ module.exports = {
     kpiJogMensVot,
     chartUsers,
     chartJogadores, 
-    deleteUser
+    deleteUser, 
+     pesquisarUser
 };

@@ -62,8 +62,8 @@
 
   <div class="geral">
     <div class="titulo"><p>Usuários Cadastrados</p> 
-      <input type="text" class="ipt_pesquisa" id="ipt_pesquisa"> 
-      <button class="btn_pesquisa" onload="pesquisarUser()"><i class="bi bi-search"></i></button>
+      <input type="text" class="ipt_pesquisa" id="ipt_pesquisa"  onkeydown="pesquisarUser()"> 
+      <button class="btn_pesquisa"><i class="bi bi-search"></i></button>
     </div>
 
    
@@ -141,9 +141,33 @@ function carregarPage() {
   usuarios() 
 }
 
-function pesquisarUser(params) {
-  let parametroBusca = ipt_pesquisa.value
-   
+function pesquisarUser() {
+  let parametroBusca = ipt_pesquisa.value;
+
+  fetch(`/usuarios/pesquisarUser/${parametroBusca}`, {
+    method: "GET"
+  })
+  .then(async resposta => {
+    var users_encontrados = await resposta.json();
+    var divUserInfos = document.getElementById('txt_users');
+    let htmlUsers = ''; // acumula aqui
+
+    for (let i = users_encontrados.length - 1; i >= 0; i--) {
+      htmlUsers += `
+        <div class="informacoes">
+          <div class="id-user">${users_encontrados[i].idUsuario}</div>
+          <div class="nome-user">${users_encontrados[i].nome}</div>
+          <div class="email-user">${users_encontrados[i].email}</div>
+          <div class="dtNasc-user">${users_encontrados[i].dtNasc}</div>
+          <button onclick="deleteUser(${users_encontrados[i].idUsuario})" class="btn-excluir">
+            <i class="bi bi-trash3-fill" style="color: white"></i>
+          </button>
+        </div>
+      `;
+    }
+
+    divUserInfos.innerHTML = htmlUsers; // só atualiza uma vez
+  });
 }
 
 
