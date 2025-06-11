@@ -316,6 +316,11 @@ html {
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
 }
 
+.btn_participar a {
+  color: #fffff6;
+  text-decoration: none;
+}
+
 .banner-jogos h1 {
   color: #131313;
   letter-spacing: 2px;

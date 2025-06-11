@@ -17,6 +17,7 @@ function buscarPost() {
               ${usersNegados[i].relato}
             </div>
             <div class="botoes-relato">
+            <p style="margin-right:5vh">Username: ${usersNegados[i].nome} </p>
               <button class="btn_aceitar" onclick="aceitar(${usersNegados[i].idpost}, 1)">Aceitar</button>
               <button class="btn_negar" onclick="aceitar(${usersNegados[i].idpost}, -1)">Negar</button>
             </div>
