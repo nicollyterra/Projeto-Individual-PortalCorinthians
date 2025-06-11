@@ -9,9 +9,34 @@ body {
     font-family: "Bebas Neue", sans-serif;
     font-weight: 300;
     font-style: normal;
+    flex-direction: column;
 }
 
 /* divs principais */
+
+.voltar {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  color: #fffff6;
+  font-size: 14px;
+  font-family: 'Bebas Neue', sans-serif;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  z-index: 999; /* fica por cima de tudo */
+  transition: opacity 0.3s ease;
+}
+.voltar a {
+    text-decoration: none;
+    color: white;
+}
+.voltar::before {
+  content: '←';
+  margin-right: 8px;
+  font-size: 20px;
+  line-height: 1;
+}
 
 .geral {
     height: 500px;

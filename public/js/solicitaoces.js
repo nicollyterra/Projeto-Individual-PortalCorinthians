@@ -7,12 +7,22 @@ function buscarPost() {
     var txt_card = ``
     for (let i = usersNegados.length - 1; i >= 0; i--) {
       txt_card += `
-          <div class="card">
-            <div class="img-relato"><img src="./uploads/${usersNegados[i].img_relato}"></div>
-            <div class="desc-relato">${usersNegados[i].relato}
-            <button class="btn_aceitar" onclick="aceitar(${usersNegados[i].idpost}, 1)">Aceitar</button>
-            <button class="btn_aceitar" onclick="aceitar(${usersNegados[i].idpost}, -1)">Negar</button></div>
-          </div>`
+
+      <div class="card">
+          <div class="img-relato">
+            <img src="./uploads/${usersNegados[i].img_relato}">
+          </div>
+          <div class="desc-relato">
+            <div class="texto-relato">
+              ${usersNegados[i].relato}
+            </div>
+            <div class="botoes-relato">
+              <button class="btn_aceitar" onclick="aceitar(${usersNegados[i].idpost}, 1)">Aceitar</button>
+              <button class="btn_negar" onclick="aceitar(${usersNegados[i].idpost}, -1)">Negar</button>
+            </div>
+          </div>
+      </div>
+          `
 
     }
     cards_soli.innerHTML = txt_card
@@ -48,11 +58,11 @@ function postsAceitos() {
     for (let i = postsGerais.length - 1; i >= 0; i--) {
 
       carrossel.innerHTML += `
-             <div class="swiper-slide">
-              <div class='card-torcida'  style="background-image: url('./uploads/${postsGerais[i].img_relato}');">
+             <div class="swiper-slide" width="400px"!important>
+              <div class='card-torcida'  style="background-image: url('./uploads/${postsGerais[i].img_relato}'); width: 500px">
                 <div class='info'>
                   <h1 class='title'></h1>
-                  <p class='description'>${postsGerais[i].relato}<span style="color: #847248;">${postsGerais[i].nome}</span></p>
+                  <p class='description'>${postsGerais[i].relato}<span style="color: #847248; margin-left: 4vh">${postsGerais[i].nome}</span></p>
                 </div>
               </div>
             </div>`
@@ -140,7 +150,7 @@ function chartJogadores() {
   // setInterval(chartJogadores,5000)
 }
 
-function  editarUser() {
+function editarUser() {
   fetch('/usuarios/editarUser', {
     method: "PUT"
   })

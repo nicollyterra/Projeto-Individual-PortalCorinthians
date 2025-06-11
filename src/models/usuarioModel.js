@@ -29,8 +29,8 @@ function buscarPorId(idUsuario) {
 
 function enviar(relato, img_relato, fkUsuario) {
     var instrucao = `
-        INSERT INTO post (relato, img_relato, fkUsuario, statusPost)
-        VALUES ('${relato}', '${img_relato}', '${fkUsuario}', 0);
+        INSERT INTO post (relato, img_relato, fkUsuario, statusPost, data_post)
+        VALUES ('${relato}', '${img_relato}', '${fkUsuario}', 0, current_date());
     `;
     return database.executar(instrucao);
 }
@@ -177,6 +177,12 @@ function pesquisarUser(pesquisa) {
     return database.executar(instrucaoSql);
 }
 
+function trazerPosts(idUsuario) {
+    var instrucaoSql = `
+    SELECT * FROM post WHERE fkUsuario = ${idUsuario} `
+    return database.executar(instrucaoSql); 
+}
+
 module.exports = {
     autenticar,
     cadastrar,
@@ -195,5 +201,6 @@ module.exports = {
     chartUsers,
     chartJogadores, 
     deleteUser, 
-     pesquisarUser
+    pesquisarUser,
+    trazerPosts
 };

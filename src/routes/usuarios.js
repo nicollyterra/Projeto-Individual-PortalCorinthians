@@ -89,5 +89,9 @@ router.get("/pesquisarUser/:pesquisa", function (req, res) {
      usuarioController.pesquisarUser(req, res); 
 })
 
+router.get("/trazerPosts/:idUsuario", function (req, res) {
+     usuarioController.trazerPosts(req, res); 
+})
+
 
 module.exports = router;

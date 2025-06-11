@@ -313,6 +313,17 @@ function pesquisarUser(req, res) {
     })
 }
 
+function trazerPosts(req, res) {
+    let idUser = req.params.idUsuario
+
+    usuarioModel.trazerPosts(idUser)
+    .then(resultado => {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado)
+        }
+    })
+}
+
 
 
 
@@ -334,5 +345,6 @@ module.exports = {
     chartUsers,
     chartJogadores, 
     deleteUser, 
-     pesquisarUser
+     pesquisarUser, 
+     trazerPosts
 }

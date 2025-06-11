@@ -55,7 +55,7 @@
 
     </div>
 
-    <div class="logout">
+    <div class="logout" onclick="logout()">
       <a href="login.html" style="text-decoration: none;"><i class="bi bi-box-arrow-right"
           style="color: white;">Sair</i></a>
     </div>
@@ -176,10 +176,14 @@
       });
     })
   })
-  // function atualizar(interval){
-  //   setTimeout("atualizarGrafico();", interval)
-  // }
-  // function atualizarGrafico(){
-  //   window.location.reload()
-  // }
+
+  function logout(){
+  sessionStorage.clear() 
+   
+    alert("Logout realizado com sucesso!");
+
+    setTimeout(() => {
+        window.location = "/index.html";
+    }, 500);
+}
 </script>

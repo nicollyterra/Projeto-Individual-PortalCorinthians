@@ -13,30 +13,30 @@
         rel="stylesheet">
     <link rel="stylesheet" href="styles/style-conta-user.css">
     <link rel="icon" type="image/png" href="./imagens/logo-do-corinthians-4096.png">
-     <script src="js/sessions.js"></script>
-     <script src="./js/solicitaoces.js"></script>
+    <script src="js/sessions.js"></script>
+    <script src="./js/solicitaoces.js"></script>
     <title>Minha conta</title>
 </head>
 
-<body onload="iniciarEmConta()">
+<body onload="iniciarEmConta(),  trazerPosts()">
     <nav class="navbar">
         <div class="logo">
             <a href="index.html"><img src="imagens/logo-navbar.svg" alt="Logo Corinthians"></a>
 
         </div>
-         <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#news">Notícias</a></li>
-        <li><a href="index.html#jogos">Jogos</a></li>
-        <li><a href="index.html#torcida">Fiel Torcida</a></li>
-        <li><a href="index.html#historia">História</a></li>
-        
-      </ul>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#news">Notícias</a></li>
+            <li><a href="index.html#jogos">Jogos</a></li>
+            <li><a href="index.html#torcida">Fiel Torcida</a></li>
+            <li><a href="index.html#historia">História</a></li>
+
+        </ul>
 
         <div class="btn-logout">
             <button onclick="logout()">Sair</button>
         </div>
-    
+
     </nav>
 
     <div class="content">
@@ -59,24 +59,29 @@
                         <p>Nome</p>
                         <div class="nome-edit">
                             <span id="b_usuario">usuário</span>
-                            <button onclick="editarUser()" class="btn_edit" style="background-color: transparent; border: none;">
-                                <i class="bi bi-pencil-square" style="color: #fffff6;"></i></button>
                         </div>
-                        
+
 
                         <br><br>
 
                         <p>Email</p>
                         <div class="nome-edit">
                             <span id="b_email">email@gmail</span>
-                            <button onclick="editarUser()" class="btn_edit" style="background-color: transparent;  border: none;">
-                                <i class="bi bi-pencil-square" style="color: #fffff6;"></i> </button>
                         </div>
                     </div>
 
-                    
+
                 </div>
-                <div class="solicitacoes"></div>
+
+                <hr class="line">
+                
+                <div class="solicitacoes">
+                    <p style="margin-top: 2vh;">Solicitações</p>
+                    <div class="solici" id="cards_solicitacoes">
+
+                    </div>
+
+                </div>
             </div>
         </div>
 
@@ -182,5 +187,43 @@
                 }
             }
         });
-    }); 
+    });
+
+    function trazerPosts() {
+        fetch(`usuarios/trazerPosts/${idUsuario}`, {
+            method: "GET"
+        }).then(async resposta => {
+            var solicitacoes = await resposta.json()
+
+            let mensagem = ''
+
+            for (let i = solicitacoes.length - 1; i >= 0; i--) {
+                let status
+                let cor
+                let dataFormatada = new Date(solicitacoes[i].data_post).toLocaleDateString()
+
+                if (solicitacoes[i].statusPost == 0) {
+                    status = "Em Análise"
+                    cor = "#F0E68C"
+                } else if (solicitacoes[i].statusPost == 1) {
+                    status = "Aceito"
+                    cor = "#4169E1"
+                } else {
+                    status = "Negado"
+                    cor = "red"
+                }
+
+                mensagem += `<div class="card-solici">
+                                <div class="cor" style="color:${cor}!important">-</div>
+                                <span class="cor" style="color:${cor}!important">${status}</span>
+                                <span>${dataFormatada}</span>
+                            </div>`
+
+
+            }
+
+
+            cards_solicitacoes.innerHTML = mensagem
+        })
+    }
 </script>
